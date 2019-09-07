@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> ADMIN ROOM</title>
+<link rel="stylesheet" type="text/css" href="../css/admin.css">
+</head>
+<body>
+      <h1>We Are The Team Work.</h1>
+      <div class="nav">
+          <a href="../index.html">Log Out</a> 
+      </div> </br></br>
+   <div class="center">
+        <button class="tablink"   id="defaultOpenbtn">Reported Comments</button>
+        <button class="tablink" id="reportedbtn">Reported Topics</button>
+   </div>
+    <div id="ads" class="tabcontent">
+  <div class="centralcolumn">
+    <div class="card">
+
+        <h1>Reported Comments </h1></br>
+       
+        <form class="search">
+                <input type="text" placeholder="Search by keyword..." name="search">
+                <button type="submit" name="submit">&#128269</button>
+              </form>
+
+              <p>
+                <table>
+                  <tr >
+                    <th>Comment Id</th>
+                    <th>Topic Id</th>
+                    <th>Reason</th>
+                    <th> Delete Comment</th>
+    
+                  </tr>
+                        <tr>
+                            <td>cmt0001</br>
+                            <td>tpc0001</td>
+                            <td>it's abusive?
+                            </td>
+                            <td><button id="delete0" type="submit"> Delete Comment</button></td>
+                          </tr>
+          
+                          <tr>
+                            <td>cmt0002</br>
+                              <td>tpc0001</td>
+                                  <td>It's homophobic </td>
+                                  <td><button id="delete1" type="submit"> Delete Comment</button></td>
+                                </tr>
+                </table>
+                </p>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="reported" class="tabcontent">
+        <div class="centralcolumn">
+          <div class="card">
+      
+              <h1>Reported Topics </h1></br>
+             
+              <form class="search">
+                      <input type="text" placeholder="Search by keyword..." name="search">
+                      <button type="submit" name="submit">&#128269</button>
+                    </form>
+      
+            <p>
+            <table>
+              <tr >
+                <th>Topic Id</th>
+                <th>Topic Category</th>
+                <th>Topic Title</th>
+                <th>Reason</th>
+                <th> Delete Topic</th>
+
+              </tr>
+                    <tr>
+                        <td>tpc0001</br>
+                        <td>FootBall</td>
+                        <td>Arsenal</td>
+                        <td>This post is a flaud!</td>
+                        <td><button id="delete2" type="submit"> Delete Topic</button></td>
+                      </tr>
+      
+                      <tr>
+                                <td>tpc0002</br>
+                              <td>FootBall</td>
+                              <td>Arsenal</td>
+                              <td>This is a fabricated story </td>
+                              <td><button id="delete3" type="submit"> Delete Topic</button></td>
+                            </tr>
+            </table>
+            </p>
+          </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      
+      </div>
+      </div>
+    </div>
+  </div>
+      <script type="text/javascript" src="../js/admin.js"></script>
+</body>
+</html>
