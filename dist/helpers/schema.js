@@ -22,14 +22,14 @@ var articleschema = _joi["default"].object().keys({
 exports.articleschema = articleschema;
 
 var commentschema = _joi["default"].object().keys({
-  post_id: _joi["default"].number().integer(),
+  article_id: _joi["default"].number().integer(),
   body: _joi["default"].string()
 });
 
 exports.commentschema = commentschema;
 
 var articleflagschema = _joi["default"].object().keys({
-  post_id: _joi["default"].number().integer(),
+  article_id: _joi["default"].number().integer(),
   reason: _joi["default"].string(),
   description: _joi["default"].string()
 });
