@@ -33,6 +33,34 @@ function () {
   }
 
   _createClass(userController, [ {
+    key: "loginPost",
+    // function to create login feature
+    value: function loginPost(req, res) {
+      _joi["default"].validate(req.body, _schema.loginschema, function (err, value) {
+        if (err) return res.send(err.details[0].message);
+
+        var foundUser = _model.users.find(function (user) {
+          return user.email === value.email;
+        });
+
+        if (!foundUser) return res.status(405).send('email does not exists');
+        _bcrypt["default"].compare(value.password, foundUser.password, function (err, result) {
+          if (!result) return res.send('password doesnt match');
+          (0, _jsonwebtoken.sign)({
+            email: foundUser.email,
+            password: foundUser.password,
+            admin: foundUser.admin
+          }, process.env.SECRETKEY, function (err, data) {
+            foundUser.token = data;
+            res.status(200).json({status:200,message:'user logged in successfully',data:foundUser});
+          });
+        });
+      });
+    } 
+
+  },
+  // function to create signup feature
+  {
     key: "signupPost",
     value: function signupPost(req, res) {
       _joi["default"].validate(req.body, _schema.signupschema, function (err, value) {
