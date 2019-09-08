@@ -7,11 +7,11 @@ exports["default"] = void 0;
 
 var _userControllerClass = _interopRequireDefault(require("../controllers/userControllerClass"));
 
+var _articleControllerClass = _interopRequireDefault(require("../controllers/articleControllerClass"));
+
 var _midleware = _interopRequireDefault(require("../midleware/midleware"));
 
 var _adminmware = _interopRequireDefault(require("../midleware/adminmware"));
-
-const http =_interopRequireDefault(require('http'));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -19,5 +19,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 var _default = function _default(app) {
  app.post('/api/v1/auth/signup', _userControllerClass["default"].signupPost);
  app.post('/api/v1/auth/login', _userControllerClass["default"].loginPost);
+ app.post('/api/v1/article',_midleware["default"],_articleControllerClass["default"].articlePost);
 };
 exports["default"] = _default;
