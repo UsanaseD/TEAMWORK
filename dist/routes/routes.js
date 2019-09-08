@@ -18,5 +18,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 var _default = function _default(app) {
  app.post('/api/v1/auth/signup', _userControllerClass["default"].signupPost);
+ app.post('/api/v1/auth/login', _userControllerClass["default"].loginPost);
 };
 exports["default"] = _default;
