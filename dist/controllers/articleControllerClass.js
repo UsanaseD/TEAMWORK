@@ -26,6 +26,26 @@ function () {
   }
 
   _createClass(articleController, [{
+    key: "commentPost",
+    value: function commentPost(req, res) {
+      _joi["default"].validate(req.body, _schema.commentschema, function (err, value) {
+        if (err) return res.send(err.details[0].message);
+        var cmnt = {
+          id: _model.comments.length + 1,
+          article_id: value.article_id,
+          body: value.body,
+          createdOn: new Date(),
+        };
+
+        _model.comments.push(cmnt);
+
+        res.status(200).json({status:200, message:'comment successfully posted', data:cmnt});
+      });
+    } 
+
+  },
+  
+  {// function to post a comment
     key: "articlePost",
     value: function articlePost(req, res) {
       _joi["default"].validate(req.body, _schema.articleschema, function (err, value) {
