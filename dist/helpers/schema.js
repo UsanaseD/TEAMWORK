@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.commentschema = exports.signupschema = exports.loginschema = exports.flagschema = exports.commentflagschema = exports.articleschema = exports.postflagschema = void 0;
+exports.commentschema = exports.signupschema = exports.loginschema = exports.flagschema = exports.commentflagschema = exports.articleschema = exports.articleflagschema = void 0;
 
 var _joi = _interopRequireDefault(require("@hapi/joi"));
 
@@ -23,7 +23,9 @@ exports.articleschema = articleschema;
 
 var commentschema = _joi["default"].object().keys({
   article_id: _joi["default"].number().integer(),
-  body: _joi["default"].string()
+  articleTitle: _joi["default"].string(),
+  article: _joi["default"].string(),
+comment: _joi["default"].string()
 });
 
 exports.commentschema = commentschema;
