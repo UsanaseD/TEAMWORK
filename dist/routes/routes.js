@@ -21,5 +21,6 @@ var _default = function _default(app) {
  app.post('/api/v1/auth/login', _userControllerClass["default"].loginPost);
  app.post('/api/v1/article',_midleware["default"],_articleControllerClass["default"].articlePost);
  app.post('/api/v1/comment', _midleware["default"], _articleControllerClass["default"].commentPost);
+ app.post('/api/v1/articleflag', _midleware["default"], _articleControllerClass["default"].articleflag);
 };
 exports["default"] = _default;
