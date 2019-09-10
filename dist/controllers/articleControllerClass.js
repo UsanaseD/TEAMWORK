@@ -25,7 +25,14 @@ function () {
     _classCallCheck(this, articleController);
   }
 
-  _createClass(articleController, [{// function to select a specified article
+  _createClass(articleController,[{
+    key: "getallarticles",
+    // function to select all articles
+    value: function getallarticles(req, res) {
+      res.status(200).json({status:200, message:'articles successfully selected', data: _model.articles});
+    } 
+  }, 
+  {// function to select a specified article
     key: "specifedarticle",
     value: function specifedarticle(req, res) {
       var slctdart = _model.articles.find(function (slctdart) {
@@ -37,17 +44,14 @@ function () {
       var slctdcmt = _model.comments.find(function (slctdcmt) {
         return slctdcmt.article_id === slctdart.id && slctdcmt.comment;
       });
-      var i;
+
       var comment = {
 
         article_id: slctdart.id,
         comment: slctdcmt.comment,
       };
- for(i=0;i>=comment.length;i++){
-
       _model.comments.push(comment);
- }
-      res.status(200).json({status:200, message:'article successfully selected', data: slctdart,comment});
+      res.status(200).json({status:200, message:'article successfully selected', data: slctdart, comment});
     } 
 
   }, 

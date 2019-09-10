@@ -28,7 +28,7 @@ var _default = function _default(app) {
 
 
  app.get('/api/v1/article/:id', _midleware["default"],  _articleControllerClass["default"].specifedarticle);
-
+ app.get('/api/v1/article', _midleware["default"], _articleControllerClass["default"].getallarticles);
 
 
  app["delete"]('/api/v1/article/:id', _midleware["default"], _articleControllerClass["default"].deleteArticle);
