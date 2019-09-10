@@ -25,7 +25,33 @@ function () {
     _classCallCheck(this, articleController);
   }
 
-  _createClass(articleController, [{//function to delete an article
+  _createClass(articleController, [{// function to select a specified article
+    key: "specifedarticle",
+    value: function specifedarticle(req, res) {
+      var slctdart = _model.articles.find(function (slctdart) {
+        return slctdart.id == req.params.id;
+      });
+      
+      if (!slctdart) return res.send('there is no article with this Id');
+
+      var slctdcmt = _model.comments.find(function (slctdcmt) {
+        return slctdcmt.article_id === slctdart.id && slctdcmt.comment;
+      });
+      var i;
+      var comment = {
+
+        article_id: slctdart.id,
+        comment: slctdcmt.comment,
+      };
+ for(i=0;i>=comment.length;i++){
+
+      _model.comments.push(comment);
+ }
+      res.status(200).json({status:200, message:'article successfully selected', data: slctdart,comment});
+    } 
+
+  }, 
+  {//function to delete an article
     key: "deleteArticle",
     value: function deleteArticle(req, res) {
       _joi["default"].validate(req.body, _schema.articleschema, function (err, value) {

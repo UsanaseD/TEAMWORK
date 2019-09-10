@@ -27,6 +27,10 @@ var _default = function _default(app) {
  app.post('/api/v1/commentflag', _midleware["default"], _articleControllerClass["default"].commentflag);
 
 
+ app.get('/api/v1/article/:id', _midleware["default"],  _articleControllerClass["default"].specifedarticle);
+
+
+
  app["delete"]('/api/v1/article/:id', _midleware["default"], _articleControllerClass["default"].deleteArticle);
 
 };
