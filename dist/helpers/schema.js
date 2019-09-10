@@ -23,9 +23,9 @@ exports.articleschema = articleschema;
 
 var commentschema = _joi["default"].object().keys({
   article_id: _joi["default"].number().integer(),
-  articleTitle: _joi["default"].string(),
+  articleTitle:_joi["default"].string(),
   article: _joi["default"].string(),
-comment: _joi["default"].string()
+  comment: _joi["default"].string(),
 });
 
 exports.commentschema = commentschema;
@@ -63,8 +63,8 @@ var signupschema = _joi["default"].object().keys({
   lastname: _joi["default"].string().regex(/^[a-zA-Z]{3,30}$/),
   address: _joi["default"].string().alphanum().min(5).max(20).required(),
   gender:_joi["default"].string().regex(/^['male','female']{4,6}$/),
-  jobtitle:_joi["default"].string().regex(/^[a-zA-Z]{3,30}$/),
-  depart: _joi["default"].string().regex(/^[a-zA-Z]{3,30}$/),
+  jobtitle:_joi["default"].string().regex(/^[a-zA-Z]{2,30}$/),
+  depart: _joi["default"].string().regex(/^[a-zA-Z]{2,30}$/),
   admin: _joi["default"]["boolean"](),
   password: _joi["default"].string().regex(/^[a-zA-Z0-9]{3,30}$/).required()
 });
