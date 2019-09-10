@@ -17,6 +17,7 @@ var articleschema = _joi["default"].object().keys({
   category: _joi["default"].string().regex(/^[a-zA-Z]{3,30}$/),
   title: _joi["default"].string(),
   body: _joi["default"].string(),
+  auth_id: _joi["default"].number().integer()
 });
 
 exports.articleschema = articleschema;

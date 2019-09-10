@@ -25,7 +25,28 @@ function () {
     _classCallCheck(this, articleController);
   }
 
-  _createClass(articleController, [{ //function to create a comment flag 
+  _createClass(articleController, [{//function to delete an article
+    key: "deleteArticle",
+    value: function deleteArticle(req, res) {
+      _joi["default"].validate(req.body, _schema.articleschema, function (err, value) {
+        if (err) return res.send(err.details[0].message);
+
+        var article = _model.articles.find(function (article) {
+          return article.id == parseInt(req.params.id, 10);
+        });
+        if (!article) return res.status(404).send('the id provided does not exist');
+
+        var index = _model.articles.indexOf(article);
+
+        _model.articles.splice(index, 1);
+
+        res.status(200).json({status:200, message:'article successfully deleted', data:article});
+      });
+    } 
+
+  },
+  
+  { //function to create a comment flag 
     key: "commentflag",
     value: function articleflag(req, res) {
       _joi["default"].validate(req.body, _schema.commentflagschema, function (err, value) {
@@ -106,6 +127,7 @@ function () {
         if (err) return res.send(err.details[0].message);
         var story = {
           id: _model.articles.length + 1,
+          auth_id: value.artauth_id,
           author: value.author,
           category: value.category,
           title: value.title,
