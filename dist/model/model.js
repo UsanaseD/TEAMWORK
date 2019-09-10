@@ -3,9 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.articles = exports.comments = exports.users = exports.flags = void 0;
-var flags = [];
-exports.flags = flags;
+exports.articles = exports.comments = exports.users = exports.commentflags = exports.articleflags = void 0;
+var articleflags = [];
+exports.articleflags = articleflags;
+var commentflags = [];
+exports.commentflags = commentflags;
 var users = [];
 exports.users = users;
 var articles = [];

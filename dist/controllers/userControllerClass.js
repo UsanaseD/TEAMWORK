@@ -32,7 +32,7 @@ function () {
     _classCallCheck(this, userController);
   }
 
-  _createClass(userController, [ {
+  _createClass(userController, [{
     key: "loginPost",
     // function to create login feature
     value: function loginPost(req, res) {
@@ -43,7 +43,8 @@ function () {
           return user.email === value.email;
         });
 
-        if (!foundUser) return res.status(405).send('email does not exists');
+        if (!foundUser) return res.status(405).send('email not exists');
+
         _bcrypt["default"].compare(value.password, foundUser.password, function (err, result) {
           if (!result) return res.send('password doesnt match');
           (0, _jsonwebtoken.sign)({
@@ -52,15 +53,13 @@ function () {
             admin: foundUser.admin
           }, process.env.SECRETKEY, function (err, data) {
             foundUser.token = data;
-            res.status(200).json({status:200,message:'user logged in successfully',data:foundUser});
+            res.status(200).json({status:200, message:'user successfully koggedin', data:foundUser});
           });
         });
       });
-    } 
+    } // function to create signup feature
 
-  },
-  // function to create signup feature
-  {
+  }, {
     key: "signupPost",
     value: function signupPost(req, res) {
       _joi["default"].validate(req.body, _schema.signupschema, function (err, value) {
@@ -81,7 +80,7 @@ function () {
             lastname: value.lastname,
             gender: value.gender,
             jobtitle: value.jobtitle,
-            department: value.depart,
+            depart: value.depart,
             address: value.address,
             admin: value.admin,
             email: value.email,
@@ -97,7 +96,7 @@ function () {
             admin: Newuser.admin
           }, process.env.SECRETKEY, function (err, data) {
             Newuser.token = data;
-            res.status(201).json({status:201,message:'User created successfully',data:Newuser});
+            res.status(201).json({status:200, message:'user successfully created', data:Newuser});
           });
         });
       });

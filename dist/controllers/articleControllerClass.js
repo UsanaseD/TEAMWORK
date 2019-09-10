@@ -25,7 +25,30 @@ function () {
     _classCallCheck(this, articleController);
   }
 
-  _createClass(articleController, [{ //function to create an article flag 
+  _createClass(articleController, [{ //function to create a comment flag 
+    key: "commentflag",
+    value: function articleflag(req, res) {
+      _joi["default"].validate(req.body, _schema.commentflagschema, function (err, value) {
+        if (err) return res.send(err.details[0].message);
+        var xstcmnt = _model.comments.find(function (xstcmnt ) {
+          return xstcmnt.id === value.comment_id;
+        });
+
+        if (!xstcmnt ) return res.status(405).send('comment id does not exist');
+        var flga = {
+          id: _model.commentflags.length + 1,
+          comment_id: value.comment_id,
+          reason: value.reason,
+          description: value.description
+        };
+
+        _model.commentflags.push(flga);
+
+        return res.status(200).json({status:200, message:'claim successfully posted', data:flga});
+      });
+    }
+  },
+{ //function to create an article flag 
     key: "articleflag",
     value: function articleflag(req, res) {
       _joi["default"].validate(req.body, _schema.articleflagschema, function (err, value) {
@@ -36,13 +59,13 @@ function () {
 
         if (!xstdart) return res.status(405).send('artical id does not exist');
         var flg = {
-          id: _model.flags.length + 1,
+          id: _model.articleflags.length + 1,
           article_id: value.article_id,
           reason: value.reason,
           description: value.description
         };
 
-        _model.flags.push(flg);
+        _model.articleflags.push(flg);
 
         return res.status(200).json({status:200, message:'claim successfully posted', data:flg});
       });

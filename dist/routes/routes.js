@@ -13,6 +13,8 @@ var _midleware = _interopRequireDefault(require("../midleware/midleware"));
 
 var _adminmware = _interopRequireDefault(require("../midleware/adminmware"));
 
+const http =_interopRequireDefault(require('http'));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 
@@ -22,5 +24,6 @@ var _default = function _default(app) {
  app.post('/api/v1/article',_midleware["default"],_articleControllerClass["default"].articlePost);
  app.post('/api/v1/comment', _midleware["default"], _articleControllerClass["default"].commentPost);
  app.post('/api/v1/articleflag', _midleware["default"], _articleControllerClass["default"].articleflag);
+ app.post('/api/v1/commentflag', _midleware["default"], _articleControllerClass["default"].commentflag);
 };
 exports["default"] = _default;
