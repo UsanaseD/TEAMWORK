@@ -25,7 +25,27 @@ function () {
     _classCallCheck(this, articleController);
   }
 
-  _createClass(articleController,[{
+  _createClass(articleController,[ {// function to edit an article
+    key: "articlePatch",
+    value: function articlePatch(req, res) {
+      _joi["default"].validate(req.body, _schema.articleschema, function (err, value) {
+        if (err) return res.send(err.details[0].message);
+
+        var art = _model.articles.find(function (art) {
+          return art.id == parseInt(req.params.id, 10);
+        });
+
+        if (!art) return res.send('the id provided does not exist');
+        art.title = value.title;
+        art.category = value.category;
+        art.body=value.body;
+        return res.status(200).json({status:200, message:'articles successfully selected', data: art });
+      });
+    } // function to update a car's price
+
+  },
+  
+  {
     key: "getallarticles",
     // function to select all articles
     value: function getallarticles(req, res) {
