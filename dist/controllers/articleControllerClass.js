@@ -25,7 +25,15 @@ function () {
     _classCallCheck(this, articleController);
   }
 
-  _createClass(articleController,[ {// function to edit an article
+  _createClass(articleController,[    {
+    key: "getallreparticles",
+    // function to view all reported articles
+    value: function getallreparticles(req, res) {
+      res.status(200).json({status:200, message:'articles successfully selected', data: _model.articleflags});
+    } 
+  }, 
+  
+  {// function to edit an article
     key: "articlePatch",
     value: function articlePatch(req, res) {
       _joi["default"].validate(req.body, _schema.articleschema, function (err, value) {
@@ -39,9 +47,9 @@ function () {
         art.title = value.title;
         art.category = value.category;
         art.body=value.body;
-        return res.status(200).json({status:200, message:'articles successfully selected', data: art });
+        return res.status(200).json({status:200, message:'article successfully updated', data: art });
       });
-    } // function to update a car's price
+    } 
 
   },
   

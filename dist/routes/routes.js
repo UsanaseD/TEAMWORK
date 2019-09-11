@@ -13,7 +13,6 @@ var _midleware = _interopRequireDefault(require("../midleware/midleware"));
 
 var _adminmware = _interopRequireDefault(require("../midleware/adminmware"));
 
-const http =_interopRequireDefault(require('http'));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -31,12 +30,11 @@ var _default = function _default(app) {
  app.patch('/api/v1/article/:id', _midleware["default"],_articleControllerClass["default"].articlePatch);
 
 
-
+ app.get('/api/v1/reparticle', _adminmware["default"],  _articleControllerClass["default"].getallreparticles)
  app.get('/api/v1/article/:id', _midleware["default"],  _articleControllerClass["default"].specifedarticle);
- app.get('/api/v1/article', _midleware["default"], _articleControllerClass["default"].getallarticles);
+ app.get('/api/v1/article',_midleware["default"], _articleControllerClass["default"].getallarticles);
 
 
- app["delete"]('/api/v1/article/:id', _midleware["default"], _articleControllerClass["default"].deleteArticle);
-
+ app["delete"]('/api/v1/article/:id', _adminmware["default"]|| _midleware["default"], _articleControllerClass["default"].deleteArticle);
 };
 exports["default"] = _default;
