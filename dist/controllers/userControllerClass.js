@@ -1,7 +1,7 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+  value: true,
 });
 exports["default"] = void 0;
 
@@ -96,7 +96,7 @@ function () {
             admin: Newuser.admin
           }, process.env.SECRETKEY, function (err, data) {
             Newuser.token = data;
-            res.status(201).json({status:200, message:'user successfully created', data:Newuser});
+            res.status(201).json((0, _helperFunc["default"]),{status:201, message:'user successfully created', data:Newuser});
           });
         });
       });
