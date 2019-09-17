@@ -8,9 +8,6 @@ exports["default"] = void 0;
 var _default = function _default(NewUser,res) {
   
   var user = {
-    statu: 201,
-    message: 'User created Successfully',
-    data:{
     id: NewUser.id,
     firstname: NewUser.firstname,
     lastname: NewUser.lastname,
@@ -20,8 +17,7 @@ var _default = function _default(NewUser,res) {
     email: NewUser.email,
     address: NewUser.address,
     admin: NewUser.admin,
-    token: NewUser.token
-    }
+    token: NewUser.token  
   };
   return user;
 };

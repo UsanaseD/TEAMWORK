@@ -14,7 +14,7 @@ var articleschema = _joi["default"].object().keys({
   author: _joi["default"].string().email({
     minDomainSegments: 2
   }),
-  category: _joi["default"].string().regex(/^[a-zA-Z]{3,30}$/),
+  category: _joi["default"].string(),
   title: _joi["default"].string(),
   body: _joi["default"].string(),
   auth_id: _joi["default"].number().integer()
@@ -74,7 +74,7 @@ exports.signupschema = signupschema;
 
 
 var articlepatchschema = _joi["default"].object().keys({
-  body:_joi["default"].string().regex(/^[a-zA-Z]$/),
+  body:_joi["default"].string(),
 });
 
 exports.articlepatchschema = articlepatchschema;
