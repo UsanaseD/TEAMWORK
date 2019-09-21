@@ -25,7 +25,7 @@ describe('article endpoint testing', () => { // test case
         admin: true,
         address: 'kk199st',
       }).end((err, data) => {
-        const { token } = data.body;
+        const { token } = data.body.data;
         global.myToken = token;
         done();
       });

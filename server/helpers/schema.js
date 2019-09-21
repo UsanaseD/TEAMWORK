@@ -11,8 +11,6 @@ export const articleschema = joi.object().keys({
 export const commentschema = joi.object().keys({
   article_id: joi.number().integer(),
   auth_id: joi.number().integer(),
-  articleTitle: joi.string(),
-  article: joi.string(),
   comment: joi.string(),
 });
 

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable consistent-return */
 // import swaggerUi from 'swagger-ui-express';
 import routUserController from '../controllers/userControllerClass';
 import authMidleware from '../midleware/midleware';
@@ -22,6 +24,7 @@ export default (app) => {
   app.get('/api/v1/article', authMidleware, articleControllerClass.getallarticles);
 
   app.delete('/api/v1/article/:id', authMidleware, articleControllerClass.deleteArticle);
+
 
   // app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerific));
 };
