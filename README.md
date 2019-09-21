@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/UsanaseD/TEAMWORK/badge.svg?branch=develop)](https://coveralls.io/github/UsanaseD/TEAMWORK?branch=develop)[![Build Status](https://travis-ci.org/UsanaseD/TEAMWORK.svg?branch=develop)](https://travis-ci.org/UsanaseD/TEAMWORK)
+
 ## TEAMWORK
 Teamwork is an ​internal social network for organizations’ employees. The goal of this application is to facilitate more interaction between colleagues and facilitate team bonding. 
 
