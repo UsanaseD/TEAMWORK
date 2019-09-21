@@ -27,6 +27,7 @@ describe('article endpoint testing', () => { // test case
       }).end((err, data) => {
         const { token } = data.body.data;
         global.myToken = token;
+        console.log(token)
         done();
       });
   });
