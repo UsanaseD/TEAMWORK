@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-unused-vars */
 import jsonwebtoken from 'jsonwebtoken';
 import secretkey from '../config/config';
 

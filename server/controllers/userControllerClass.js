@@ -9,11 +9,11 @@ import userFunc from '../helpers/helperFunc';
 class userController {
   // function to create login feature
 
-  loginPost(req, res) {
+ static loginPost(req, res) {
     joi.validate(req.body, loginschema, (err, value) => {
       if (err) return res.send(err.details[0].message);
       const foundUser = users.find((user) => user.email === value.email);
-      if (!foundUser) return res.status(405).send('email not exists');
+      if (!foundUser) return res.status(405).send('email does not exist');
       bycript.compare(value.password, foundUser.password, (err, result) => {
         if (!result) return res.send('password doesnt match');
         sign({
@@ -32,7 +32,7 @@ class userController {
 
 
   // function to create signup feature
-  signupPost(req, res) {
+ static signupPost(req, res) {
     joi.validate(req.body, signupschema, (err, value) => {
       if (err) return res.send(err.details[0].message);
       bycript.hash(value.password, 9, (err, hashdpsswd) => {
@@ -60,10 +60,10 @@ class userController {
 
         process.env.SECRETKEY, (err, data) => {
           Newuser.token = data;
-          res.status(201).send(userFunc(Newuser));
+          res.status(201).json({ status: 201, message: 'User succefully Signed up', data: Newuser });
         });
       });
     });
   }
 }
-export default new userController();
+export default userController;
