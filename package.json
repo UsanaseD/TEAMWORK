@@ -4,8 +4,8 @@
   "description": "teamwork package",
   "main": "index.js",
   "scripts": {
-    "transpile": "babel  --out-dir server",
-    "start": "babel-node ./server/server.js",
+    "build": "babel  --out-dir dist",
+    "start": "node ./dist/server.js",
     "lint": "./node_modules/.bin/eslint server",
     "fix": "./node_modules/.bin/eslint server --fix",
     "test": "nyc --reporter=html --reporter=text mocha --exit --require @babel/register ./server/test/*.js",
