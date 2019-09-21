@@ -4,7 +4,6 @@ import { sign } from 'jsonwebtoken';
 import bycript from 'bcrypt';
 import { users } from '../model/model';
 import { loginschema, signupschema } from '../helpers/schema';
-import userFunc from '../helpers/helperFunc';
 
 class userController {
   // function to create login feature

@@ -54,6 +54,7 @@ describe('article endpoint testing', () => { // test case
       .set({ Authorization: `Bearer ${global.myToken}` })
       .end((err, data) => {
         expect(data.body).to.be.a('object');
+        data.should.have.status(200);
         done();
       });
   });
