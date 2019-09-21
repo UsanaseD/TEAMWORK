@@ -4,7 +4,7 @@
   "description": "teamwork package",
   "main": "index.js",
   "scripts": {
-    "build": "babel  --out-dir dist",
+    "build": "babel --out-dir dist",
     "start": "node ./dist/server.js",
     "lint": "./node_modules/.bin/eslint server",
     "fix": "./node_modules/.bin/eslint server --fix",
