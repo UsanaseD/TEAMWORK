@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/UsanaseD/TEAMWORK/badge.svg?branch=develop)](https://coveralls.io/github/UsanaseD/TEAMWORK?branch=develop)[![Build Status](https://travis-ci.org/UsanaseD/TEAMWORK.svg?branch=develop)](https://travis-ci.org/UsanaseD/TEAMWORK)
+[![Coverage Status](https://coveralls.io/repos/github/UsanaseD/TEAMWORK/badge.svg?branch=develop)](https://coveralls.io/github/UsanaseD/TEAMWORK?branch=develop)[![Build Status](https://travis-ci.org/UsanaseD/TEAMWORK.svg?branch=develop)](https://travis-ci.org/UsanaseD/TEAMWORK)<a href="https://codeclimate.com/github/UsanaseD/TEAMWORK/maintainability"><img src="https://api.codeclimate.com/v1/badges/62e6a420cbba771a20fb/maintainability" /></a>
 
 ## TEAMWORK
 Teamwork is an ​internal social network for organizations’ employees. The goal of this application is to facilitate more interaction between colleagues and facilitate team bonding. 
