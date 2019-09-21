@@ -63,6 +63,7 @@
         }
       }
     },
+
     "/article": {
       "post": {
         "tags": [
@@ -112,134 +113,10 @@
           }
         }
       }
-    },
-    "/comment": {
-      "post": {
-        "tags": [
-          "comment"
-        ],
-        "summary": "create a comment.",
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "type": "string",
-            "description": "Client token",
-            "required": true
-          },
-          {
-            "name": "comment",
-            "in": "body",
-            "description": "comment creation"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "comment created successfully!"
-          }
-        }
       },
 
-    "/articleflag": {
-      "post": {
-        "tags": [
-          "articleflag"
-        ],
-        "summary": "flag a posted article.",
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "type": "string",
-            "description": "Client token",
-            "required": true
-          },
-          {
-            "name": "articleflag",
-            "in": "body",
-            "description": "report or flag a posted article"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "article flaged successfully!"
-          }
-        }
-      }
-    },
-
-    "/commentflag": {
-      "post": {
-        "tags": [
-          "commentflag"
-        ],
-        "summary": "flag a posted comment.",
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "type": "string",
-            "description": "Client token",
-            "required": true
-          },
-          {
-            "name": "articleflag",
-            "in": "body",
-            "description": "report or flag a posted comment"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "comment flaged successfully!"
-          }
-        }
-      }
-    },
-
-    "/article/{id}": {
-      "patch":{
-        "tags":[
-            "article"
-        ],
-        "summary":"update a specific article",
-        "produces":[
-            "application/json"
-        ],
-
-            "parameters": [
-        {
-          "name": "Authorization",
-          "in": "header",
-          "type": "string",
-          "description": "client token",
-          "required": true
-        },
-        {
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "type": "integer",
-          "description": "article id"
-        },
-        {
-          "name": "update article",
-          "in": "body",
-          "required": true,
-          "description": "article body"
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "article updated!"
-        },
-        "404": {
-          "description": "No element found!"
-        }
-      }
-    }
-  },
-
-      "get":{
+ "/article/{id}": {   
+"get":{
         "tags":[
             "article"
         ],
@@ -302,7 +179,133 @@
           }
         }
     },
-    "reparticle":{
+
+    "patch":{
+      "tags":[
+          "article"
+      ],
+      "summary":"update a specific article",
+      "produces":[
+          "application/json"
+      ],
+
+          "parameters": [
+      {
+        "name": "Authorization",
+        "in": "header",
+        "type": "string",
+        "description": "client token",
+        "required": true
+      },
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "integer",
+        "description": "article id"
+      },
+      {
+        "name": "update article",
+        "in": "body",
+        "required": true,
+        "description": "article body"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "article updated!"
+      },
+      "404": {
+        "description": "No element found!"
+      }
+    }
+  }
+},
+  
+    "/comment": {
+      "post": {
+        "tags": [
+          "comment"
+        ],
+        "summary": "create a comment.",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string",
+            "description": "Client token",
+            "required": true
+          },
+          {
+            "name": "comment",
+            "in": "body",
+            "description": "comment creation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "comment created successfully!"
+          }
+        }
+      }
+    },
+    
+    "/articleflag": {
+      "post": {
+        "tags": [
+          "articleflag"
+        ],
+        "summary": "flag a posted article.",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string",
+            "description": "Client token",
+            "required": true
+          },
+          {
+            "name": "articleflag",
+            "in": "body",
+            "description": "report or flag a posted article"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "article flaged successfully!"
+          }
+        }
+      }
+    },
+    "/commentflag": {
+      "post": {
+        "tags": [
+          "commentflag"
+        ],
+        "summary": "flag a posted comment.",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string",
+            "description": "Client token",
+            "required": true
+          },
+          {
+            "name": "articleflag",
+            "in": "body",
+            "description": "report or flag a posted comment"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "comment flaged successfully!"
+          }
+        }
+      }
+    },
+
+  "/reparticle":{
     "get": {
       "tags": [
         "reportedArticle"
@@ -323,9 +326,8 @@
         }
       }
     }
-  }
   },
- 
+
 
   "definitions": {
     "signup": {
@@ -364,60 +366,51 @@
       }
     },
 
-    "article":{
+    "car":{
       "type":"object",
       "properties":{
-        "auth_id":{
-          "type":"integer"
-      },
-          "author":{
+          "email":{
               "type":"string"
           },
-          "category":{
+          "manufacturer":{
               "type":"string"
           },
-          "type":{
+          "model":{
               "type":"string"
           },
-          "body":{
+          "price":{
+              "type":"integer"
+          },
+          "state":{
+              "type":"string"
+          },
+          "status":{
               "type":"string"
           }
       }
   },
 
-  "comment":{
+  "order":{
       "type":"object",
       "properties":{
-          "article_id":{
+          "car_id":{
               "type":"integer"
           },
-          "auth_id":{
-            "type":"integer"
-        },
-      "comment":{
-          "type":"string"
+          "status":{
+              "type":"string"
+          },
+          "old_price":{
+              "type":"integer"
+          },
+      "new_price":{
+          "type":"integer"
       } 
       }
   },
-    "articleflag": {
+    "flag": {
       "type": "object",
       "properties": {
-        "article_id": {
-          "type": "integer"
-        },
-        "reason": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        }
-
-      }
-    },
-    "commentflag": {
-      "type": "object",
-      "properties": {
-        "comment_id": {
+        "car_id": {
           "type": "integer"
         },
         "reason": {
