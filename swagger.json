@@ -342,14 +342,25 @@
         "lastname": {
           "type": "string"
         },
-        "password": {
-          "type": "string"
-        },
         "address":{
           "type":"string"
         },
+        "gender":{
+          "type":"string"
+        },
+        "jobtitle":{
+
+          "type":"string"
+        },
+        "depart":{
+          "type":"string"
+        },
+
         "admin":{
           "type":"boolean"
+        },         
+        "password": {
+          "type": "string"
         }
       }
     },
@@ -366,51 +377,60 @@
       }
     },
 
-    "car":{
+    "article":{
       "type":"object",
       "properties":{
-          "email":{
+        "auth_id":{
+          "type":"string"
+        },
+          "author":{
               "type":"string"
           },
-          "manufacturer":{
+          "category":{
               "type":"string"
           },
-          "model":{
+          "title":{
               "type":"string"
           },
-          "price":{
-              "type":"integer"
-          },
-          "state":{
-              "type":"string"
-          },
-          "status":{
+          "body":{
               "type":"string"
           }
       }
   },
 
-  "order":{
+  "comment":{
       "type":"object",
       "properties":{
-          "car_id":{
+          "article_id":{
               "type":"integer"
           },
-          "status":{
+          "auth_id":{
               "type":"string"
           },
-          "old_price":{
-              "type":"integer"
-          },
-      "new_price":{
-          "type":"integer"
-      } 
+          "comment":{
+              "type":"string"
+          } 
       }
   },
-    "flag": {
+    "articleflag": {
       "type": "object",
       "properties": {
-        "car_id": {
+        "article_id": {
+          "type": "integer"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+
+      }
+    },
+    "commentflag": {
+      "type": "object",
+      "properties": {
+        "comment_id": {
           "type": "integer"
         },
         "reason": {
