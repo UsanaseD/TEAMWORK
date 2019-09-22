@@ -11,6 +11,9 @@ var _config = _interopRequireDefault(require("../config/config"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+/* eslint-disable consistent-return */
+
+/* eslint-disable no-unused-vars */
 var _default = function _default(req, res, next) {
   var token = req.headers.authorization.split(' ')[1];
 

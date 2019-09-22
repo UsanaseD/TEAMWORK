@@ -18,6 +18,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 var articleController =
 /*#__PURE__*/
 function () {
@@ -25,65 +26,52 @@ function () {
     _classCallCheck(this, articleController);
   }
 
-  _createClass(articleController,[    {
+  _createClass(articleController, [{
     key: "getallreparticles",
-    // function to view all reported articles
+    // function to select all reported articles
     value: function getallreparticles(req, res) {
-      res.status(200).json({status:200, message:'articles successfully selected', data: _model.articleflags});
-    } 
-  }, 
-  
-  {// function to edit an article
-    key: "articlePatch",
-    value: function articlePatch(req, res) {
-      _joi["default"].validate(req.body, _schema.articleschema, function (err, value) {
-        if (err) return res.send(err.details[0].message);
-
-        var art = _model.articles.find(function (art) {
-          return art.id == parseInt(req.params.id, 10);
-        });
-
-        if (!art) return res.send('the id provided does not exist');
-        art.title = value.title;
-        art.category = value.category;
-        art.body=value.body;
-        return res.status(200).json({status:200, message:'article successfully updated', data: art });
+      res.status(200).json({
+        status: 200,
+        message: 'claims successfully selected',
+        data: _model.articleflags
       });
-    } 
+    } // function to select all articles
 
-  },
-  
-  {
+  }, {
     key: "getallarticles",
-    // function to select all articles
     value: function getallarticles(req, res) {
-      res.status(200).json({status:200, message:'articles successfully selected', data: _model.articles});
-    } 
-  }, 
-  {// function to select a specified article
+      res.status(200).json({
+        status: 200,
+        message: 'article successfully selected',
+        data: _model.articles.reverse()
+      });
+    } // function to select an article
+
+  }, {
     key: "specifedarticle",
     value: function specifedarticle(req, res) {
-      var slctdart = _model.articles.find(function (slctdart) {
-        return slctdart.id == req.params.id;
-      });
-      
-      if (!slctdart) return res.send('there is no article with this Id');
-
-      var slctdcmt = _model.comments.find(function (slctdcmt) {
-        return slctdcmt.article_id === slctdart.id && slctdcmt.comment;
+      var article = _model.articles.find(function (article) {
+        return article.id == req.params.id;
       });
 
-      var comment = {
-
-        article_id: slctdart.id,
-        comment: slctdcmt.comment,
+      if (!article) return res.send('there is no artile with this Id');
+      var data = {
+        article: article
       };
-      _model.comments.push(comment);
-      res.status(200).json({status:200, message:'article successfully selected', data: slctdart, comment});
-    } 
 
-  }, 
-  {//function to delete an article
+      var comment = _model.comments.filter(function (comment) {
+        return comment.article_id == article.id;
+      });
+
+      res.status(200).json({
+        status: 200,
+        message: 'article successfully selected',
+        data: data,
+        comment: comment
+      });
+    } // function to to delete a specified article
+
+  }, {
     key: "deleteArticle",
     value: function deleteArticle(req, res) {
       _joi["default"].validate(req.body, _schema.articleschema, function (err, value) {
@@ -92,51 +80,119 @@ function () {
         var article = _model.articles.find(function (article) {
           return article.id == parseInt(req.params.id, 10);
         });
+
         if (!article) return res.status(404).send('the id provided does not exist');
 
         var index = _model.articles.indexOf(article);
 
         _model.articles.splice(index, 1);
 
-        res.status(200).json({status:200, message:'article successfully deleted', data:article});
+        res.json({
+          status: 200,
+          message: 'article successfully deleted',
+          data: article
+        });
       });
-    } 
+    } // function to update an article
 
-  },
-  
-  { //function to create a comment flag 
-    key: "commentflag",
-    value: function articleflag(req, res) {
-      _joi["default"].validate(req.body, _schema.commentflagschema, function (err, value) {
+  }, {
+    key: "articlePatch",
+    value: function articlePatch(req, res) {
+      _joi["default"].validate(req.body, _schema.articlepatchschema, function (err, value) {
         if (err) return res.send(err.details[0].message);
-        var xstcmnt = _model.comments.find(function (xstcmnt ) {
-          return xstcmnt.id === value.comment_id;
+
+        var art = _model.articles.find(function (art) {
+          return art.id == parseInt(req.params.id, 10);
         });
 
-        if (!xstcmnt ) return res.status(405).send('comment id does not exist');
-        var flga = {
-          id: _model.commentflags.length + 1,
-          comment_id: value.comment_id,
-          reason: value.reason,
-          description: value.description
+        if (!art) return res.send('the stated id doesnt exist ');
+        art.title = value.title;
+        art.category = value.category;
+        art.body = value.body;
+        return res.json({
+          status: 200,
+          message: 'article successfully updated',
+          data: art
+        });
+      });
+    } // function to create a comment
+
+  }, {
+    key: "commentPost",
+    value: function commentPost(req, res) {
+      _joi["default"].validate(req.body, _schema.commentschema, function (err, value) {
+        if (err) return res.send(err.details[0].message);
+
+        var cmtart = _model.articles.find(function (cmtart) {
+          return cmtart.id == value.article_id;
+        });
+
+        var cmtauth = _model.users.find(function (cmtauth) {
+          return cmtauth.id == value.auth_id;
+        });
+
+        if (!cmtauth) return res.send('the stated user id doesnt exist');
+        if (!cmtart) return res.send('the stated article id doesnt exist ');
+        var cmnt = {
+          id: _model.comments.length + 1,
+          auth_id: value.auth_id,
+          article_id: value.article_id,
+          comment: value.comment,
+          createdOn: new Date()
         };
 
-        _model.commentflags.push(flga);
+        _model.comments.push(cmnt);
 
-        return res.status(200).json({status:200, message:'claim successfully posted', data:flga});
+        res.status(201).json({
+          status: 201,
+          message: 'comment successfully created',
+          data: cmnt
+        });
       });
-    }
-  },
-{ //function to create an article flag 
+    } // function to create an article
+
+  }, {
+    key: "articlePost",
+    value: function articlePost(req, res) {
+      _joi["default"].validate(req.body, _schema.articleschema, function (err, value) {
+        if (err) return res.send(err.details[0].message);
+
+        var user = _model.users.find(function (user) {
+          return user.id === value.auth_id;
+        });
+
+        if (!user) return res.send('the stated user id doesnt exist ');
+        var story = {
+          id: _model.articles.length + 1,
+          auth_id: user.id,
+          author: user.email,
+          category: value.category,
+          title: value.title,
+          body: value.body,
+          date: new Date()
+        };
+
+        _model.articles.push(story);
+
+        res.status(201).json({
+          status: 201,
+          message: 'article successfully created',
+          data: story
+        });
+      });
+    } // function to create articleflag
+
+  }, {
     key: "articleflag",
     value: function articleflag(req, res) {
       _joi["default"].validate(req.body, _schema.articleflagschema, function (err, value) {
         if (err) return res.send(err.details[0].message);
-        var xstdart = _model.articles.find(function (xstdart) {
-          return xstdart.id === value.article_id;
+
+        var art = _model.articles.find(function (art) {
+          return art.id === value.article_id;
         });
 
-        if (!xstdart) return res.status(405).send('artical id does not exist');
+        if (!art) return res.send('the stated article id doesnt exist ');
         var flg = {
           id: _model.articleflags.length + 1,
           article_id: value.article_id,
@@ -146,60 +202,41 @@ function () {
 
         _model.articleflags.push(flg);
 
-        return res.status(200).json({status:200, message:'claim successfully posted', data:flg});
+        return res.status(200).json({
+          status: 200,
+          message: 'claim successfully posted',
+          data: flg
+        });
       });
-    }
-  },
-  
-  {//function to create a comment route
-    key: "commentPost",
-    value: function commentPost(req, res) {
-      _joi["default"].validate(req.body, _schema.commentschema, function (err, value) {
+    } // function to create commentflag
+
+  }, {
+    key: "commentflag",
+    value: function commentflag(req, res) {
+      _joi["default"].validate(req.body, _schema.commentflagschema, function (err, value) {
         if (err) return res.send(err.details[0].message);
-        var cmntdart = _model.articles.find(function (cmntdart) {
-          return cmntdart.id === value.article_id && cmntdart.body && cmntdart.title;
+
+        var cmt = _model.comments.find(function (cmt) {
+          return cmt.id === value.comment_id;
         });
 
-        if (!cmntdart) return res.status(405).send('artical id does not exist');
-        var cmnt = {
-          id: _model.comments.length + 1,
-          article_id: value.article_id,
-          articleTitle: cmntdart.title,
-          article: cmntdart.body,
-          comment: value.comment,
-          createdOn: new Date(),
+        if (!cmt) return res.send('the stated comment id doesnt exist ');
+        var flg = {
+          id: _model.commentflags.length + 1,
+          comment_id: value.comment_id,
+          reason: value.reason,
+          description: value.description
         };
 
-        _model.comments.push(cmnt);
+        _model.commentflags.push(flg);
 
-        res.status(200).json({status:200, message:'comment successfully posted', data:cmnt});
+        return res.status(200).json({
+          status: 200,
+          message: 'claim successfully posted',
+          data: flg
+        });
       });
-    } 
-
-  },
-  
-  {// function to post an article
-    key: "articlePost",
-    value: function articlePost(req, res) {
-      _joi["default"].validate(req.body, _schema.articleschema, function (err, value) {
-        if (err) return res.send(err.details[0].message);
-        var story = {
-          id: _model.articles.length + 1,
-          auth_id: value.artauth_id,
-          author: value.author,
-          category: value.category,
-          title: value.title,
-          body: value.body,
-          date: new Date(),
-        };
-        
-
-        _model.articles.push(story);
-
-        res.status(201).json({status:201, message:'article successfully created', data:story})
-      });
-    } 
-
+    }
   }]);
 
   return articleController;

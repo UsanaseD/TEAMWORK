@@ -1,7 +1,7 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-  value: true,
+  value: true
 });
 exports["default"] = void 0;
 
@@ -14,8 +14,6 @@ var _bcrypt = _interopRequireDefault(require("bcrypt"));
 var _model = require("../model/model");
 
 var _schema = require("../helpers/schema");
-
-var _helperFunc = _interopRequireDefault(require("../helpers/helperFunc"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -32,7 +30,7 @@ function () {
     _classCallCheck(this, userController);
   }
 
-  _createClass(userController, [{
+  _createClass(userController, null, [{
     key: "loginPost",
     // function to create login feature
     value: function loginPost(req, res) {
@@ -43,7 +41,7 @@ function () {
           return user.email === value.email;
         });
 
-        if (!foundUser) return res.status(405).send('email not exists');
+        if (!foundUser) return res.status(405).send('email does not exist');
 
         _bcrypt["default"].compare(value.password, foundUser.password, function (err, result) {
           if (!result) return res.send('password doesnt match');
@@ -53,7 +51,11 @@ function () {
             admin: foundUser.admin
           }, process.env.SECRETKEY, function (err, data) {
             foundUser.token = data;
-            res.status(200).json({status:200, message:'user successfully koggedin', data:foundUser});
+            res.status(200).json({
+              status: 200,
+              message: 'User succefully Logged In',
+              foundUser: foundUser
+            });
           });
         });
       });
@@ -74,7 +76,6 @@ function () {
 
           if (foundUser) return res.status('409').send('email already exists');
           var Newuser = {
-            
             id: _model.users.length + 1,
             firstname: value.firstname,
             lastname: value.lastname,
@@ -85,9 +86,8 @@ function () {
             admin: value.admin,
             email: value.email,
             password: hashdpsswd
-            
           };
-          
+
           _model.users.push(Newuser);
 
           (0, _jsonwebtoken.sign)({
@@ -96,7 +96,11 @@ function () {
             admin: Newuser.admin
           }, process.env.SECRETKEY, function (err, data) {
             Newuser.token = data;
-            res.status(201).json((0, _helperFunc["default"]),{status:201, message:'user successfully created', data:Newuser});
+            res.status(201).json({
+              status: 201,
+              message: 'User succefully Signed up',
+              data: Newuser
+            });
           });
         });
       });
@@ -106,6 +110,5 @@ function () {
   return userController;
 }();
 
-var _default = new userController();
-
+var _default = userController;
 exports["default"] = _default;

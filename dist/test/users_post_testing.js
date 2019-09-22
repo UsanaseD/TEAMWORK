@@ -15,13 +15,13 @@ it('testing of signup', function (done) {
   (0, _chai.request)(_server["default"]).post('/api/v1/auth/signup').send({
     firstname: 'Didier',
     lastname: 'Usanase',
-    email: 'todiddy30@gmail.com',
-    password: 'usanase10',
-    admin: false,
-    address: 'kk199st',
     gender: 'male',
     jobtitle: 'MD',
     depart: 'IT',
+    email: 'todidy@gmail.com',
+    password: 'usanase10',
+    admin: true,
+    address: 'kk199st'
   }).end(function (err, data) {
     data.should.have.status(201);
     done();
@@ -31,7 +31,7 @@ describe('testing of users endpoints', function () {
   // testing of login
   it('testing of login', function (done) {
     (0, _chai.request)(_server["default"]).post('/api/v1/auth/login').send({
-      email: 'todiddy30@gmail.com',
+      email: 'todidy@gmail.com',
       password: 'usanase10'
     }).end(function (err, data) {
       data.should.have.status(200);
