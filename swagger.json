@@ -50,7 +50,10 @@
           {
             "name": "user",
             "in": "body",
-            "description": "user login"
+            "description": "user login",
+            "schema": {
+              "$ref": "#/definitions/login"
+            }
           }
         ],
         "responses": {
