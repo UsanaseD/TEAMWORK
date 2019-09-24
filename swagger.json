@@ -5,7 +5,7 @@
     "version": "1",
     "title": "TEAMWORK"
   },
-  "host": "usanase-TEAMWORK.herokuapp.com",
+  "host": "teamworkd.herokuapp.com",
   "basePath": "/api/v1/",
   "securityDefinitions": {
     "Bearer": {
@@ -36,6 +36,12 @@
         "responses": {
           "201": {
             "description": "User account created!"
+          },
+          "404": {
+            "description": "User can't be created!"
+          },
+          "409": {
+            "description": "conflict!"
           }
         }
       }
@@ -78,7 +84,7 @@
             "name": "Authorization",
             "in": "header",
             "type": "string",
-            "description": "client token",
+            "description": "admin token",
             "required": true
           },
           {
