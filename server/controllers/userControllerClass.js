@@ -8,7 +8,7 @@ import { loginschema, signupschema } from '../helpers/schema';
 class userController {
   // function to create login feature
 
- static loginPost(req, res) {
+  static loginPost(req, res) {
     joi.validate(req.body, loginschema, (err, value) => {
       if (err) return res.send(err.details[0].message);
       const foundUser = users.find((user) => user.email === value.email);
@@ -31,7 +31,7 @@ class userController {
 
 
   // function to create signup feature
- static signupPost(req, res) {
+  static signupPost(req, res) {
     joi.validate(req.body, signupschema, (err, value) => {
       if (err) return res.send(err.details[0].message);
       bycript.hash(value.password, 9, (err, hashdpsswd) => {

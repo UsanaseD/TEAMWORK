@@ -5,7 +5,7 @@
     "version": "1",
     "title": "TEAMWORK"
   },
-  "host": "usanase-TEAMWORK.herokuapp.com",
+  "host": "teamworkd.herokuapp.com",
   "basePath": "/api/v1/",
   "securityDefinitions": {
     "Bearer": {
@@ -30,13 +30,21 @@
           {
             "name": "user",
             "in": "body",
-            "description": "User creation"
+            "description": "User creation",
+            "schema": {
+              "$ref": "#/definitions/signup"
+            }
           }
         ],
         "responses": {
-          "201": {
-            "description": "User account created!"
-          }
+        "201": {"description": "created!"},
+        "200": {"description": "passed!"},
+        "400": {"description": " Bad Request!"},
+        "401": {"description": "Unauthorised!"},
+        "403": {"description": "permission denied!"},
+        "409": {"description": "conflict!"},
+        "500": {"description": "Server Error!"}
+
         }
       }
     },
@@ -57,9 +65,13 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Login successful!"
-          }
+          "201": {"description": "created!"},
+          "200": {"description": "passed!"},
+          "400": {"description": " Bad Request!"},
+          "401": {"description": "Unauthorised!"},
+          "403": {"description": "permission denied!"},
+          "409": {"description": "conflict!"},
+          "500": {"description": "Server Error!"}
         }
       }
     },
@@ -78,19 +90,26 @@
             "name": "Authorization",
             "in": "header",
             "type": "string",
-            "description": "client token",
+            "description": "cllient token",
             "required": true
           },
           {
             "name": "create an article",
             "in": "body",
-            "description": "enter article definition"
+            "description": "enter article definition",
+            "schema": {
+              "$ref": "#/definitions/article"
+            }
           }
         ],
         "responses": {
-          "200": {
-            "description": "Article created!"
-          }
+          "201": {"description": "created!"},
+          "200": {"description": "passed!"},
+          "400": {"description": " Bad Request!"},
+          "401": {"description": "Unauthorised!"},
+          "403": {"description": "permission denied!"},
+          "409": {"description": "conflict!"},
+          "500": {"description": "Server Error!"}
         }
       },
        "get": {
@@ -108,9 +127,13 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "articles retrieved Successfully!"
-          }
+          "201": {"description": "created!"},
+          "200": {"description": "passed!"},
+          "400": {"description": " Bad Request!"},
+          "401": {"description": "Unauthorised!"},
+          "403": {"description": "permission denied!"},
+          "409": {"description": "conflict!"},
+          "500": {"description": "Server Error!"}
         }
       }
       },
@@ -142,9 +165,13 @@
         }
       ],
       "responses": {
-        "200": {
-          "description": "Success!"
-        }
+        "201": {"description": "created!"},
+        "200": {"description": "passed!"},
+        "400": {"description": " Bad Request!"},
+        "401": {"description": "Unauthorised!"},
+        "403": {"description": "permission denied!"},
+        "409": {"description": "conflict!"},
+        "500": {"description": "Server Error!"}
       }
     },
 
@@ -174,9 +201,13 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "article deleted!"
-          }
+          "201": {"description": "created!"},
+          "200": {"description": "passed!"},
+          "400": {"description": " Bad Request!"},
+          "401": {"description": "Unauthorised!"},
+          "403": {"description": "permission denied!"},
+          "409": {"description": "conflict!"},
+          "500": {"description": "Server Error!"}
         }
     },
 
@@ -208,16 +239,20 @@
         "name": "update article",
         "in": "body",
         "required": true,
-        "description": "article body"
+        "description": "article body",
+        "schema": {
+          "$ref": "#/definitions/articlepatch"
+        }
       }
     ],
     "responses": {
-      "200": {
-        "description": "article updated!"
-      },
-      "404": {
-        "description": "No element found!"
-      }
+      "201": {"description": "created!"},
+      "200": {"description": "passed!"},
+      "400": {"description": " Bad Request!"},
+      "401": {"description": "Unauthorised!"},
+      "403": {"description": "permission denied!"},
+      "409": {"description": "conflict!"},
+      "500": {"description": "Server Error!"}
     }
   }
 },
@@ -239,13 +274,20 @@
           {
             "name": "comment",
             "in": "body",
-            "description": "comment creation"
+            "description": "comment creation",
+            "schema": {
+              "$ref": "#/definitions/comment"
+            }
           }
         ],
         "responses": {
-          "200": {
-            "description": "comment created successfully!"
-          }
+          "201": {"description": "created!"},
+          "200": {"description": "passed!"},
+          "400": {"description": " Bad Request!"},
+          "401": {"description": "Unauthorised!"},
+          "403": {"description": "permission denied!"},
+          "409": {"description": "conflict!"},
+          "500": {"description": "Server Error!"}
         }
       }
     },
@@ -267,13 +309,20 @@
           {
             "name": "articleflag",
             "in": "body",
-            "description": "report or flag a posted article"
+            "description": "report or flag a posted article",
+            "schema": {
+              "$ref": "#/definitions/articleflag"
+            }
           }
         ],
         "responses": {
-          "200": {
-            "description": "article flaged successfully!"
-          }
+          "201": {"description": "created!"},
+          "200": {"description": "passed!"},
+          "400": {"description": " Bad Request!"},
+          "401": {"description": "Unauthorised!"},
+          "403": {"description": "permission denied!"},
+          "409": {"description": "conflict!"},
+          "500": {"description": "Server Error!"}
         }
       }
     },
@@ -292,15 +341,22 @@
             "required": true
           },
           {
-            "name": "articleflag",
+            "name": "commentflag",
             "in": "body",
-            "description": "report or flag a posted comment"
+            "description": "report or flag a posted comment",
+            "schema": {
+              "$ref": "#/definitions/commentflag"
+            }
           }
         ],
         "responses": {
-          "200": {
-            "description": "comment flaged successfully!"
-          }
+          "201": {"description": "created!"},
+          "200": {"description": "passed!"},
+          "400": {"description": " Bad Request!"},
+          "401": {"description": "Unauthorised!"},
+          "403": {"description": "permission denied!"},
+          "409": {"description": "conflict!"},
+          "500": {"description": "Server Error!"}
         }
       }
     },
@@ -316,133 +372,152 @@
           "name": "Authorization",
           "in": "header",
           "type": "string",
-          "description": "client token",
+          "description": "admin token",
           "required": true
         }
       ],
       "responses": {
-        "200": {
-          "description": "reported articles retrieved Successfully!"
-        }
+        "201": {"description": "created!"},
+        "200": {"description": "passed!"},
+        "400": {"description": " Bad Request!"},
+        "401": {"description": "Unauthorised!"},
+        "403": {"description": "permission denied!"},
+        "409": {"description": "conflict!"},
+        "500": {"description": "Server Error!"}
+      }
+    }
+  }
+},
+
+"definitions": {
+  "signup": {
+    "type": "object",
+    "properties": {
+      "email": {
+        "type": "string"
+      },
+      "firstname": {
+        "type": "string"
+      },
+      "lastname": {
+        "type": "string"
+      },
+      "address":{
+        "type":"string"
+      },
+      "gender":{
+        "type":"string"
+      },
+      "jobtitle":{
+
+        "type":"string"
+      },
+      "depart":{
+        "type":"string"
+      },
+
+      "admin":{
+        "type":"boolean"
+      },         
+      "password": {
+        "type": "string"
       }
     }
   },
 
-
-  "definitions": {
-    "signup": {
-      "type": "object",
-      "properties": {
-        "email": {
-          "type": "string"
-        },
-        "firstname": {
-          "type": "string"
-        },
-        "lastname": {
-          "type": "string"
-        },
-        "address":{
-          "type":"string"
-        },
-        "gender":{
-          "type":"string"
-        },
-        "jobtitle":{
-
-          "type":"string"
-        },
-        "depart":{
-          "type":"string"
-        },
-
-        "admin":{
-          "type":"boolean"
-        },         
-        "password": {
-          "type": "string"
-        }
+  "login": {
+    "type": "object",
+    "properties": {
+      "email": {
+        "type": "string"
+      },
+      "password": {
+        "type": "string"
       }
-    },
+    }
+  },
 
-    "login": {
-      "type": "object",
-      "properties": {
-        "email": {
-          "type": "string"
+  "article":{
+    "type":"object",
+    "properties":{
+      "auth_id":{
+        "type":"string"
+      },
+        "author":{
+            "type":"string"
         },
-        "password": {
-          "type": "string"
+        "category":{
+            "type":"string"
+        },
+        "title":{
+            "type":"string"
+        },
+        "body":{
+            "type":"string"
         }
-      }
-    },
+    }
+},
 
-    "article":{
-      "type":"object",
-      "properties":{
+"articlepatch":{
+  "type":"object",
+  "properties":{
+
+      "category":{
+          "type":"string"
+      },
+      "title":{
+          "type":"string"
+      },
+      "body":{
+          "type":"string"
+      }
+  }
+},
+
+"comment":{
+    "type":"object",
+    "properties":{
+        "article_id":{
+            "type":"integer"
+        },
         "auth_id":{
-          "type":"string"
+            "type":"string"
         },
-          "author":{
-              "type":"string"
-          },
-          "category":{
-              "type":"string"
-          },
-          "title":{
-              "type":"string"
-          },
-          "body":{
-              "type":"string"
-          }
-      }
-  },
-
-  "comment":{
-      "type":"object",
-      "properties":{
-          "article_id":{
-              "type":"integer"
-          },
-          "auth_id":{
-              "type":"string"
-          },
-          "comment":{
-              "type":"string"
-          } 
-      }
-  },
-    "articleflag": {
-      "type": "object",
-      "properties": {
-        "article_id": {
-          "type": "integer"
-        },
-        "reason": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        }
-
-      }
-    },
-    "commentflag": {
-      "type": "object",
-      "properties": {
-        "comment_id": {
-          "type": "integer"
-        },
-        "reason": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        }
-
-      }
+        "comment":{
+            "type":"string"
+        } 
     }
-}
+},
+  "articleflag": {
+    "type": "object",
+    "properties": {
+      "article_id": {
+        "type": "integer"
+      },
+      "reason": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      }
+
+    }
+  },
+  "commentflag": {
+    "type": "object",
+    "properties": {
+      "comment_id": {
+        "type": "integer"
+      },
+      "reason": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      }
+
+    }
+  }
 }
 
 }
