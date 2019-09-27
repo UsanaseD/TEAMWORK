@@ -23,7 +23,7 @@ class userController {
 
         process.env.SECRETKEY, (err, data) => {
           foundUser.token = data;
-          res.status(200).json({ status: 200, message: 'User succefully Logged In', foundUser });
+          res.status(200).json({ status: 200, message: 'User succefully Logged In', foundUser,data });
         });
       });
     });
@@ -59,7 +59,7 @@ class userController {
 
         process.env.SECRETKEY, (err, data) => {
           Newuser.token = data;
-          res.status(201).json({ status: 201, message: 'User succefully Signed up', data: Newuser });
+          res.status(201).json({ status: 201, message: 'User succefully Signed up', data: Newuser , data });
         });
       });
     });
