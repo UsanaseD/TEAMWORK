@@ -441,11 +441,8 @@
     "type":"object",
     "properties":{
       "auth_id":{
-        "type":"string"
+        "type":"integer"
       },
-        "author":{
-            "type":"string"
-        },
         "category":{
             "type":"string"
         },
@@ -481,7 +478,7 @@
             "type":"integer"
         },
         "auth_id":{
-            "type":"string"
+            "type":"integer"
         },
         "comment":{
             "type":"string"

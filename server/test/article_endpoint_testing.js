@@ -43,6 +43,7 @@ describe('article endpoint testing', () => { // test case
       })
       .end((err, response) => {
         response.should.have.status(200);
+        response.should.be.a('object');
         done();
       });
   });
@@ -52,7 +53,6 @@ describe('article endpoint testing', () => { // test case
       .get('/api/v1/article')
       .set({ Authorization: `Bearer ${global.myToken}` })
       .end((err, data) => {
-        expect(data.body).to.be.a('object');
         data.should.have.status(200);
         done();
       });
@@ -70,6 +70,7 @@ describe('article endpoint testing', () => { // test case
       })
       .end((err, data) => {
         data.should.have.status(200);
+        data.should.be.a('object');
         done();
       });
   });
@@ -81,6 +82,7 @@ describe('article endpoint testing', () => { // test case
       .set({ Authorization: `Bearer ${global.myToken}` })
       .end((err, response) => {
         response.body.should.be.a('object');
+        response.should.have.status(200);
         done();
       });
   });
@@ -97,6 +99,7 @@ describe('article endpoint testing', () => { // test case
       })
       .end((err, data) => {
         data.should.have.status(200);
+        data.should.be.a('object');
         done();
       });
   });
@@ -112,6 +115,7 @@ describe('article endpoint testing', () => { // test case
         description: 'vption',
       })
       .end((err, data) => {
+        data.should.be.a('object');
         data.should.have.status(200);
         done();
       });
