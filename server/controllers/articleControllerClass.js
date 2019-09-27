@@ -27,13 +27,13 @@ class articleController {
   // function to select an article
 
   specifedarticle(req, res) {
-    const article = articles.find((article) => article.id == req.params.id);
+    const article = articles.find((article) => article.id === req.params.id);
     if (!article) return res.send('there is no artile with this Id');
     const data = {
       article,
     };
 
-    const comment = comments.filter((comment) => comment.article_id == article.id);
+    const comment = comments.filter((comment) => comment.article_id === article.id);
 
     res.status(200).json({
       status: 200, message: 'article successfully selected', data, comment,
@@ -45,7 +45,7 @@ class articleController {
   deleteArticle(req, res) {
     joi.validate(req.body, articleschema, (err, value) => {
       if (err) return res.send(err.details[0].message);
-      const article = articles.find((article) => article.id == parseInt(req.params.id, 10));
+      const article = articles.find((article) => article.id === parseInt(req.params.id, 10));
       if (!article) return res.status(404).send('the id provided does not exist');
       const index = articles.indexOf(article);
       articles.splice(index, 1);
@@ -58,7 +58,7 @@ class articleController {
   articlePatch(req, res) {
     joi.validate(req.body, articlepatchschema, (err, value) => {
       if (err) return res.send(err.details[0].message);
-      const art = articles.find((art) => art.id == parseInt(req.params.id, 10));
+      const art = articles.find((art) => art.id === parseInt(req.params.id, 10));
       if (!art) return res.send('the stated id doesnt exist ');
       art.title = value.title;
       art.category = value.category;
@@ -71,8 +71,8 @@ class articleController {
   commentPost(req, res) {
     joi.validate(req.body, commentschema, (err, value) => {
       if (err) return res.send(err.details[0].message);
-      const cmtart = articles.find((cmtart) => cmtart.id == value.article_id);
-      const cmtauth = users.find((cmtauth) => cmtauth.id == value.auth_id);
+      const cmtart = articles.find((cmtart) => cmtart.id === value.article_id);
+      const cmtauth = users.find((cmtauth) => cmtauth.id === value.auth_id);
       if (!cmtauth) return res.send('the stated user id doesnt exist');
       if (!cmtart) return res.send('the stated article id doesnt exist ');
       const cmnt = {
