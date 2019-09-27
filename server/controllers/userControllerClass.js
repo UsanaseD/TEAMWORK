@@ -58,7 +58,7 @@ class userController {
         },
 
         process.env.SECRETKEY, (err, data) => {
-          Newuser.data = data;
+          Newuser.token = data;
           res.status(201).json({ status: 201, message: 'User succefully Signed up', data: Newuser });
         });
       });
