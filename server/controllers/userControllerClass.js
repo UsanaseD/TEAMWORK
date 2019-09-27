@@ -21,9 +21,9 @@ class userController {
           admin: foundUser.admin,
         },
 
-        process.env.SECRETKEY, (err, tok) => {
-          foundUser.token = tok;
-          res.status(200).json({ status: 200, message: 'User succefully Logged In', foundUser,data });
+        process.env.SECRETKEY, (err, data) => {
+          foundUser.token = data;
+          res.status(200).json({ status: 200, message: 'User succefully Logged In', foundUser });
         });
       });
     });
@@ -57,9 +57,9 @@ class userController {
           admin: Newuser.admin,
         },
 
-        process.env.SECRETKEY, (err, tok) => {
-          Newuser.token = tok;
-          res.status(201).json({ status: 201, message: 'User succefully Signed up', data: Newuser , tok });
+        process.env.SECRETKEY, (err, data) => {
+          Newuser.data = tok;
+          res.status(201).json({ status: 201, message: 'User succefully Signed up', data: Newuser });
         });
       });
     });
