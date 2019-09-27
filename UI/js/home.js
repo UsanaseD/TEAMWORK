@@ -52,7 +52,6 @@ container.addEventListener('mouseover',(e)=>{
     container.style.marginLeft ='0%';
     bann.style.width='100%';
     menu.style.width='100%';
-    container.style.top='35%'
 });
 
 
