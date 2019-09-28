@@ -1,6 +1,7 @@
 const click = document.getElementById('klik');
 const container = document.getElementById('cont');
 const linkCarrer = document.getElementById('carree');
+const link = document.getElementById('links');
 const careers = document.getElementById('carrz');
 const services = document.getElementById('serv');
 const bann = document.getElementById('banner');
@@ -53,6 +54,7 @@ container.addEventListener('mouseover',(e)=>{
     bann.style.width='100%';
     menu.style.width='100%';
     container.style.top='35%';
+    link.style.top='37%';
 });
 
 
