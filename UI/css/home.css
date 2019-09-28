@@ -205,7 +205,7 @@ span{
     position: absolute;
     margin-top:0;
     background: hsl(207, 62%, 31%);
-    height: 600px;
+    height: 800px;
     color: white;
     border: none;  
     width: 60%;
@@ -216,7 +216,7 @@ span{
   .rcta{
     background: hsl(207, 62%, 31%);
     color: hsl(0, 17%, 98%);
-    height: 600px;
+    height: 800px;
     overflow-y: scroll;
     width: 40%;
     margin-left: 60%;
@@ -226,12 +226,15 @@ span{
 }
 .rct{
   background: hsl(207, 62%, 31%);
-  height: 200px;
-  overflow-y: scroll;
+  height: 100%;
   width: 100%;
-  bottom: 0;
-  position: auto;
+  position: relative;
 }
+.rcta tr th{
+  background: rgb(62, 190, 130);
+  width: 100px;
+}
+
 .rctpst{
     resize: none;
     overflow: scroll;
@@ -269,6 +272,7 @@ form a:hover{
     text-decoration: none;
   }
 
+
   #more1:hover{
     font-size: 20px;
     color: red;
@@ -284,6 +288,18 @@ form a:hover{
   color: black;
   text-decoration:none;
 }
+.rcta table{
+  border: none;
+  height:auto;
+  width: auto;
+  overflow: scroll;
+}
+ 
+.rcta table td{
+  width: auto;
+  border:none;
+}
+
 .rct  a:hover{
   font-size: 20px;
   color: grey;
@@ -413,7 +429,28 @@ form a:hover{
   color: #3a4b7e;
   overflow-y: scroll;
 }
-
+.rct{
+  background: hsl(207, 62%, 31%);
+  height: 370px;
+  overflow-y: scroll;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  }
+.edit{
+  width: 100px;
+  height: 20px;
+  border: none;
+  color:white;
+  background: rgb(156, 9, 224);
+}
+.delete{
+  width: 100px;
+  height: 20px;
+  border: none;
+  color:white;
+  background: rgb(224, 9, 27);
+}
 
 @media only screen and (max-width: 1000px) {
   *{
