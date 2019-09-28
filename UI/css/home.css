@@ -549,7 +549,7 @@ span{
 }
 .rct{
 background: hsl(207, 62%, 31%);
-height: 200px;
+height: 300px;
 overflow-y: scroll;
 width: 100%;
 bottom: 0;
