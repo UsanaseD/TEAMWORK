@@ -21,6 +21,13 @@ const delet3 = document.getElementById('del3');
 const add = document.getElementById('add');
 const type = document.getElementById('ona');
 const close = document.getElementById('close');
+const less = document.getElementById('rctpst0');
+const read = document.getElementById('less0');
+const rdlss = document.getElementById('rd0');
+const read1 = document.getElementById('less1');
+const rdlss1 = document.getElementById('rd1');
+const less1 = document.getElementById('rctpst1');
+
 
 window.addEventListener('load', (e) =>{
 container.style.display='block';
@@ -29,6 +36,8 @@ linkCarrer.style.display='none';
 flag.style.display ='none';
 flag1.style.display ='none';
 type.style.display ='none';
+less.rows = '10'
+less1.rows = '10'
 });
 
 close.addEventListener('click',(e)=>{
@@ -112,4 +121,23 @@ postbtn.addEventListener('click',(e)=>{
     alert("Post Updated succefully!");
 });
 
+read.addEventListener('mouseover',(e)=>{ 
+    less.rows='44';
+    rdlss.textContent ='Read less....'
+});
+
+read.addEventListener('click',(e)=>{ 
+    less.rows='10';
+   rdlss.textContent ='Read more....'
+});
+
+read1.addEventListener('mouseover',(e)=>{ 
+    less1.rows='44';
+    rdlss1.textContent ='Read less....'
+});
+
+read1.addEventListener('click',(e)=>{ 
+    less1.rows='10';
+   rdlss1.textContent ='Read more....'
+});
 

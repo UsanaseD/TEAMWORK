@@ -236,11 +236,10 @@ span{
 
 .rctpst{
     resize: none;
-    overflow: scroll;
-    scroll-behavior: smooth;
-    scrollbar-width: 100%;
+    overflow: hidden;
     background: white;
     font-family: tahoma;
+    border: none;
 }
 form a{
   font-size: 20px;
@@ -454,6 +453,17 @@ form a:hover{
 
 .delete:hover{
   background: rgb(82, 16, 16);
+}
+
+.less{
+  margin-left: 65%;
+}
+
+.less a{
+  color: white;
+}
+.less a:hover{
+  color: wheat;
 }
 
 @media only screen and (max-width: 1000px) {
