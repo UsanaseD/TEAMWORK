@@ -232,7 +232,6 @@ span{
 }
 .rcta tr th{
   background: rgb(62, 190, 130);
-  width: 100px;
 }
 
 .rctpst{
@@ -449,6 +448,13 @@ form a:hover{
   color:white;
   background: rgb(224, 9, 27);
 }
+.edit:hover{
+  background: rgb(95, 43, 95);
+}
+
+.delete:hover{
+  background: rgb(82, 16, 16);
+}
 
 @media only screen and (max-width: 1000px) {
   *{
@@ -549,7 +555,7 @@ span{
 }
 .rct{
 background: hsl(207, 62%, 31%);
-height: 200px;
+height: 300px;
 overflow-y: scroll;
 width: 100%;
 bottom: 0;
