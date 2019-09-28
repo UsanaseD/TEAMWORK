@@ -302,12 +302,9 @@ form a:hover{
 
 .rct  a:hover{
   font-size: 20px;
-  color: grey;
+  color: white;
 }
-.rcta  a:hover{
-  font-size: 20px;
-  color: grey;
-}
+
 
 
 .rct p a:hover{
@@ -401,6 +398,7 @@ form a:hover{
   width: 25%;
   left:0;
   color: #3a4b7e;
+  overflow-y: scroll;
 }
 .sport{
   text-align: center;
