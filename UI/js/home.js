@@ -122,22 +122,26 @@ postbtn.addEventListener('click',(e)=>{
 });
 
 read.addEventListener('mouseover',(e)=>{ 
-    less.rows='44';
+    less.rows='24';
     rdlss.textContent ='Read less....'
+    less.style.overflow='scroll'
 });
 
 read.addEventListener('click',(e)=>{ 
-    less.rows='10';
+    less.rows='7';
    rdlss.textContent ='Read more....'
+   less.style.overflow='hidden'
 });
 
 read1.addEventListener('mouseover',(e)=>{ 
-    less1.rows='44';
+    less1.rows='24';
     rdlss1.textContent ='Read less....'
+    less1.style.overflow='scroll'
 });
 
 read1.addEventListener('click',(e)=>{ 
-    less1.rows='10';
+    less1.rows='7';
    rdlss1.textContent ='Read more....'
+   less1.style.overflow='hidden'
 });
 

@@ -198,6 +198,7 @@ span{
     outline: none;
     margin-left: 60px;
     border-radius: 0.5em 0.5em;
+    
   }
 
 
@@ -237,9 +238,11 @@ span{
 .rctpst{
     resize: none;
     overflow: hidden;
-    background: white;
+    background: rgb(74, 92, 128);
     font-family: tahoma;
+    font-size: 15px;
     border: none;
+    color: white;
 }
 form a{
   font-size: 20px;
@@ -465,6 +468,7 @@ form a:hover{
 .less a:hover{
   color: wheat;
 }
+
 
 @media only screen and (max-width: 1000px) {
   *{
