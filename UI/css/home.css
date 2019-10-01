@@ -8,9 +8,8 @@ body{
     font-size: 16px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 300;
-    background: rgb(74, 92, 128);
-    background-repeat:no-repeat;
-    background-size: 100%;
+    background: rgb(3, 48, 99);
+    background-size: cover;
     height: 100%;
     color: white;
 }
@@ -149,8 +148,8 @@ span{
      top: 35%;
      position: absolute;
      width: 100%;
-     height: 100%;
-     background: rgb(74, 92, 128);
+     height: auto;
+     background: white;
      padding: 0;
  }
  table{
@@ -205,25 +204,30 @@ span{
 .owwn{
     position: absolute;
     margin-top:0;
-    background: hsl(207, 62%, 31%);
+    background: rgb(229, 226, 226);
     height: 800px;
     color: white;
     border: none;  
     width: 60%;
     overflow-y: scroll;
 }
-
+.owwn h1{
+  color: black;
+}
+.rcta h1{
+  color: black;
+}
 
   .rcta{
-    background: hsl(207, 62%, 31%);
-    color: hsl(0, 17%, 98%);
+    background: rgb(229, 226, 226);
+    color: white;
     height: 800px;
-    overflow-y: scroll;
     width: 40%;
     margin-left: 60%;
     top:0;
     position: relative;
     border: none;
+    overflow-y: scroll;
 }
 .rct{
   background: hsl(207, 62%, 31%);
@@ -255,26 +259,70 @@ form a:hover{
     text-decoration: none;
   }
 
-  #more{
-    font-size: 20px;
-    color: white;
-    text-decoration: none;
-    width: 10px;
-  }
+
   #more1{
     font-size: 20px;
-    color: white;
+    color: black;
     text-decoration: none;
-    width: 10px;
+    margin-left: 95%;
   }
+  #flag1{
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+    margin-left: 94%;
+  }
+  #more{
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    margin-left: 95%;
+  }
+  #flag{
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+    margin-left: 94%;
+  }
+  #more2{
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    margin-left: 95%;
+  }
+  #flag2{
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+    margin-left: 94%;
+  }
+
   #more:hover{
     font-size: 20px;
     color: red;
     text-decoration: none;
   }
+  #flag:hover{
+    color: red;
+    text-decoration: none;
+  }
 
+  #flag1:hover{
+    color: red;
+    text-decoration: none;
+  }
 
   #more1:hover{
+    font-size: 20px;
+    color: red;
+    text-decoration: none;
+  }
+  #flag2:hover{
+    color: red;
+    text-decoration: none;
+  }
+
+  #more:hover{
     font-size: 20px;
     color: red;
     text-decoration: none;
@@ -347,7 +395,7 @@ form a:hover{
   height: 90px;
   width: 90px;
   border-radius: 50%;
-  background: rgb(62, 122, 190);
+  background: rgb(3, 48, 99);
   bottom: 4;
   right: 0;
   position: fixed;
@@ -364,11 +412,14 @@ form a:hover{
   position: fixed;
   top:10;
   left: 140;
-  background: rgb(62, 190, 130);
+  background: rgb(3, 48, 99);
   height: 640px;
   color: white;
   border: none;
   overflow-y: scroll;
+}
+.owwna h1{
+  color: white;
 }
 
 .close{
@@ -441,21 +492,21 @@ form a:hover{
   height: 20px;
   border: none;
   color:white;
-  background: rgb(156, 9, 224);
+  background: rgb(3, 48, 99);
 }
 .delete{
   width: 100px;
   height: 20px;
   border: none;
   color:white;
-  background: rgb(224, 9, 27);
+  background: rgb(3, 48, 99);
 }
 .edit:hover{
-  background: rgb(95, 43, 95);
+  background: rgb(18, 10, 58);
 }
 
 .delete:hover{
-  background: rgb(82, 16, 16);
+  background: rgb(18, 10, 58);
 }
 
 .less{
@@ -463,17 +514,68 @@ form a:hover{
 }
 
 .less a{
-  color: white;
+  position: inherit;
+  left: 84%;
+  bottom: 0;
+  color: black;
 }
 .less a:hover{
   color: wheat;
 }
 
+.title{
+  height: 450px;
+  width: 100%;
+  border: none;
+  position: relative;
+  color: black;
+  background: white;
+  
+}
+.title:hover{
+  box-shadow: 7px 3px 7px 3px rgb(117, 114, 114);
+  background: whitesmoke;
+}
+
+.head{
+  height: 30%;
+  width: 100%;
+  background: rgb(221, 220, 220);
+  position: absolute;
+  top: 0;
+  color: black;
+}
+.lessa{
+  position: inherit;
+  left: 84%;
+  bottom: 0;
+}
+#rd1{
+  text-decoration: none;
+}
+#rd{
+  text-decoration: none;
+}
+
+.stry{
+  position: inherit;
+  top:31%;
+  overflow-y: scroll;
+}
+
+.mine{
+  width: 90%;
+  height: auto;
+  background: rgb(111, 114, 114);
+  top:100;
+  position: absolute;
+  text-align: center;
+  margin-left: 5%;
+}
+
 
 @media only screen and (max-width: 1000px) {
-  *{
-    box-sizing: border-box;
-  }
+ 
 
   .banner1{
     position: relative;
@@ -501,7 +603,7 @@ form a:hover{
     top: 35%;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: auto;
     background: rgb(74, 92, 128);
     padding: 0;
 }  
@@ -548,8 +650,8 @@ span{
 .owwn{
   position: relative;
   margin-top:0;
-  background: hsl(207, 62%, 31%);
-  height: 600px;
+  background: rgb(229, 226, 226);
+  height: 800px;
   color: white;
   border: none;  
   width: 100%;
@@ -558,9 +660,9 @@ span{
 
 
 .rcta{
-  background: hsl(207, 62%, 31%);
+  background: rgb(229, 226, 226);
   color: hsl(0, 17%, 98%);
-  height: 600px;
+  height: 800px;
   overflow-y: scroll;
   width: 100%;
   margin-left: 0;
@@ -584,5 +686,26 @@ position: auto;
   color: white;
   border: none;
   overflow-y: scroll;
+}
+.title{
+  height: auto;
+  width: 100%;
+  border: none;
+  position: relative;
+  color: black;
+  background: white;
+  
+}
+.stry{
+  position: inherit;
+  top:31%;
+  overflow-y: scroll;
+}
+.head{
+  width: 100%;
+  background: rgb(221, 220, 220);
+  position: absolute;
+  top: 0;
+  color: black;
 }
 }

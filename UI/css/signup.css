@@ -32,6 +32,13 @@ body{
     border:none;
     color: white;
     }
+    .right-box h1{
+        margin-left:25%;
+    }
+
+    .right-box p{
+        margin-left:25%;
+    }
 
     input[type="text"],
     input[type="password"]
@@ -50,6 +57,7 @@ body{
     button[type="submit"]
     {
         margin-bottom: 5px;
+        margin-left: 13%;
         width: 320px;
         height: 32px;
         border: none;
@@ -80,7 +88,7 @@ body{
     {
     position: absolute;
     top: 16%;
-    left: 30%;
+    left: 15%;
     box-sizing: border-box;
     padding: 40px;
     width: 500px;
