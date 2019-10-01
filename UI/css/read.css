@@ -149,7 +149,7 @@ span{
      position: absolute;
      width: 100%;
      height: auto;
-     background: #143361;
+     background: white;
      padding: 0;
  }
  table{
@@ -204,25 +204,24 @@ span{
 .owwn{
     position: absolute;
     margin-top:0;
-    background: #143361;
+    background: rgb(229, 226, 226);
     height: 800px;
     color: white;
     border: none;  
     width: 70%;
     overflow-y: scroll;
     align-content: stretch;
-    padding:12;
 }
 .owwn h1{
-  color: white;
+  color: black;
 }
 .rcta h1{
-  color: white;
+  color: black;
 }
 
   .rcta{
-    background: #143361;
-    color: rgb(202, 197, 197);
+    background: rgb(229, 226, 226);
+    color: white;
     height: 800px;
     width: auto;
     margin-left: 70%;
@@ -527,78 +526,24 @@ form a:hover{
 }
 
 .titl{
-  height: 130px;
-  width: 307px;
+  height: 450px;
+  width: 100%;
   border: none;
-  position: inherit;
+  position: relative;
   color: black;
-  border: none;
+  background: white;
   
 }
 
-.titl1{
-  height: 130px;
-  width: 30%;
-  border: none;
-  position: inherit;
-  color: black;
-  background: white;
-  margin-left: 33%;
-  
-}
-.titl2{
-  height: 130px;
-  width: 36%;
-  border: none;
-  position: sticky;;
-  color: black;
-  background: white;
-  margin-left: 65%;
-  
-}
-
-.titl3{
-  height: 130px;
-  width: 307px;
-  border: none;
-  position: inherit;;
-  color: black;
-  background: white;
-
-}
-.titl4{
-  height: 130px;
-  width: 30%;
-  border: none;
-  position: inherit;
-  color: black;
-  background: white;
-  margin-left: 33%;
-  
-}
-.titl5{
-  height: 130px;
-  width: 36%;
-  border: none;
-  position: sticky;;
-  color: black;
-  background: white;
-  margin-left: 65%;
-  
-}
 
 .headd{
-  height: 100%;
+  height: 30%;
   width: 100%;
-  background: rgb(179, 179, 178);
+  background: rgb(221, 220, 220);
   position: absolute;
   top: 0;
   color: black;
-  text-align: center;
 }
-
-
-
 .lessa{
   position: inherit;
   left: 84%;
@@ -620,14 +565,12 @@ form a:hover{
 .mine{
   width: auto;
   height: auto;
-  background: rgb(179, 179, 178);
-  top:112;
+  background: rgb(111, 114, 114);
+  top:100;
   position: absolute;
   text-align: center;
   right: 0;
-  color: black;
 }
-
 
 
 @media only screen and (max-width: 1000px) {
@@ -708,74 +651,16 @@ span{
   margin-top:0;
   background: rgb(229, 226, 226);
   height: 800px;
-  color: rgb(17, 17, 17);
+  color: white;
   border: none;  
   width: 100%;
   overflow-y: scroll;
 }
 
-.titl{
-  height: 130px;
-  width: 100%;
-  border: none;
-  position: inherit;
-  color: black;
-  border: none;
-  left: 0;
-  background: rgb(229, 226, 226);
-}
-
-.titl1{
-  height: 130px;
-  width: 100%;
-  border: none;
-  position: relative;
-  color: black;
- margin-left: 0;
- background: rgb(229, 226, 226);
-}
-.titl2{
-  height: 130px;
-  width: 100%;
-  border: none;
-  position: relative;
-  color: black;
-  margin-left: 0;
-  background: rgb(229, 226, 226);
-}
-
-.titl3{
-  height: 130px;
-  width: 100%;
-  border: none;
-  position: relative;
-  color: black;
-  margin-left: 0;
-  background: rgb(229, 226, 226);
-}
-.titl4{
-  height: 130px;
-  width: 1000%;
-  border: none;
-  position: relative;
-  color: black;
-  margin-left: 0;
-  background: rgb(229, 226, 226);
-}
-.titl5{
-  height: 130px;
-  width: 100%;
-  border: none;
-  position: relative;
-  color: black;
-  margin-left: 0;
-  background: rgb(229, 226, 226);
-}
-
 
 .rcta{
   background: rgb(229, 226, 226);
-  color: hsl(0, 0%, 8%);
+  color: hsl(0, 17%, 98%);
   height: 800px;
   overflow-y: scroll;
   width: 100%;
@@ -802,7 +687,15 @@ position: auto;
   border: none;
   overflow-y: scroll;
 }
-
+.titl{
+  height: auto;
+  width: 100%;
+  border: none;
+  position: relative;
+  color: black;
+  background: white;
+  
+}
 .story{
   position: relative;
   top: 20%;
@@ -824,12 +717,5 @@ position: auto;
   position: absolute;
   margin-left: 13;
   position: inherit;
-}
-.rcta h1{
-  color:"black";
-}
-
-.owwn h1{
-  color:"black";
 }
 }

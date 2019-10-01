@@ -36,8 +36,27 @@ const head2 = document.getElementById('hd2');
 const rdlss2 = document.getElementById('rd2');
 
 window.addEventListener('load', (e) =>{
-    type.style.display='none';
- 
+ more.style.display='block'
+flag.style.display='none'
+type.style.display='none';
+container.style.display='block';
+container.style.width='100%';
+linkCarrer.style.display='none';
+title.style.height='15%'
+head.style.height='100%'
+story.style.display='block'
+head.style.height='100%'
+title1.style.height='15%'
+head1.style.height='100%'
+story1.style.display='none'
+head1.style.height='100%'
+more1.style.display='none'
+flag1.style.display='none'
+title2.style.height='15%'
+head2.style.height='100%'
+story2.style.display='none'
+more2.style.display='none'
+flag2.style.display='none'
 });
 more.addEventListener('mouseover',(e)=>{
     flag.style.display='block'
