@@ -149,7 +149,7 @@ span{
      position: absolute;
      width: 100%;
      height: auto;
-     background: white;
+     background: #143361;
      padding: 0;
  }
  table{
@@ -178,20 +178,19 @@ span{
   .cmnt{
     font-size: 19px;
     font-family: tahoma;
-    width: 400px;
+    width: 100px;
     height: 40px;
-    color: black;
+    color: white;
     outline: none;
-    margin-left: 140px;
     border-radius: 6px;
-    margin-left: 10px;
     resize: none;
+    background:#254277;
   }
 
   .inpt{
     font-size: 19px;
     font-family: tahoma;
-    width: 350px;
+    width: 450px;
     height: 40px;
     color: black;
     outline: none;
@@ -204,7 +203,7 @@ span{
 .owwn{
     position: absolute;
     margin-top:0;
-    background: rgb(229, 226, 226);
+    background: #143361;
     height: 800px;
     color: white;
     border: none;  
@@ -213,14 +212,14 @@ span{
     align-content: stretch;
 }
 .owwn h1{
-  color: black;
+  color: white;
 }
 .rcta h1{
-  color: black;
+  color: white;
 }
 
   .rcta{
-    background: rgb(229, 226, 226);
+    background: #143361;
     color: white;
     height: 800px;
     width: auto;
@@ -250,15 +249,10 @@ span{
     border: none;
     color: white;
 }
-form a{
-  font-size: 20px;
-  color: black;
-  text-decoration: none;
-}
-form a:hover{
-    font-size: 20px;
-    color: red;
-    text-decoration: none;
+
+.owwn input [type="text"]
+{
+  width: 20%;
   }
 
 
@@ -276,13 +270,13 @@ form a:hover{
   }
   #more{
     font-size: 20px;
-    color: black;
+    color: white;
     text-decoration: none;
     margin-left: 95%;
   }
   #flag{
     font-size: 15px;
-    color: black;
+    color: white;
     text-decoration: none;
     margin-left: 94%;
   }
@@ -432,7 +426,7 @@ form a:hover{
   top:0;
   right:0;
   font-size: 25px;
-  background: rgb(62, 190, 130);
+  background: rgb(3, 48, 99);
 }
 .close:hover{
   background: rgb(143, 150, 146);
@@ -717,5 +711,11 @@ position: auto;
   position: absolute;
   margin-left: 13;
   position: inherit;
+}
+.owwn h1{
+  color: black;
+}
+.rcta h1{
+  color: rgb(0, 0, 0);
 }
 }

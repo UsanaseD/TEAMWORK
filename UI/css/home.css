@@ -156,6 +156,9 @@ span{
      left: 0;
      width: 100%;
  }
+ table td{
+padding: 10;
+}
 
  table td h1{
     text-align: center;
@@ -398,14 +401,12 @@ form a:hover{
   height: 90px;
   width: 90px;
   border-radius: 50%;
-  background: rgb(3, 48, 99);
+  background: rgb(8, 88, 180);
   bottom: 4;
   right: 0;
   position: fixed;
 }
-.addnew:hover{
-  background: black;
-}
+
 .addc{
   margin-top: 20%;
   margin-left: 30%;
@@ -433,7 +434,7 @@ form a:hover{
   top:0;
   right:0;
   font-size: 25px;
-  background: rgb(62, 190, 130);
+  background: rgb(3, 48, 99);
 }
 .close:hover{
   background: rgb(143, 150, 146);
@@ -536,6 +537,10 @@ form a:hover{
   
 }
 
+.titl:hover{
+  box-shadow: 7px 3px 7px 3px  white ;
+}
+
 .titl1{
   height: 130px;
   width: 30%;
@@ -546,15 +551,21 @@ form a:hover{
   margin-left: 33%;
   
 }
+.titl1:hover{
+  box-shadow: 7px 3px 7px 3px  white ;
+}
 .titl2{
   height: 130px;
-  width: 36%;
+  width: 34%;
   border: none;
   position: sticky;;
   color: black;
   background: white;
   margin-left: 65%;
   
+}
+.titl2:hover{
+  box-shadow: 7px 3px 7px 3px  white ;
 }
 
 .titl3{
@@ -566,6 +577,9 @@ form a:hover{
   background: white;
 
 }
+.titl3:hover{
+  box-shadow: 7px 3px 7px 3px  white ;
+}
 .titl4{
   height: 130px;
   width: 30%;
@@ -576,15 +590,21 @@ form a:hover{
   margin-left: 33%;
   
 }
+.titl4:hover{
+  box-shadow: 7px 3px 7px 3px  white ;
+}
 .titl5{
   height: 130px;
-  width: 36%;
+  width: 34%;
   border: none;
   position: sticky;;
   color: black;
   background: white;
   margin-left: 65%;
   
+}
+.titl5:hover{
+  box-shadow: 7px 3px 7px 3px  white ;
 }
 
 .headd{
@@ -825,11 +845,10 @@ position: auto;
   margin-left: 13;
   position: inherit;
 }
-.rcta h1{
-  color:"black";
-}
-
 .owwn h1{
-  color:"black";
+  color: black;
+}
+.rcta h1{
+  color: rgb(0, 0, 0);
 }
 }

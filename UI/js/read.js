@@ -12,7 +12,7 @@ const flag = document.getElementById('flag');
 const flag1 = document.getElementById('flag1');
 const own = document.getElementById('txt0');
 const postbtn = document.getElementById('post');
-const cmnt1 = document.getElementById('cmnt1');
+const comment = document.getElementById('cmntbtn');
 const cmnt = document.getElementById('cmnt');
 const delet0 = document.getElementById('del0');
 const delet1 = document.getElementById('del1');
@@ -58,12 +58,18 @@ story2.style.display='none'
 more2.style.display='none'
 flag2.style.display='none'
 });
-more.addEventListener('mouseover',(e)=>{
+comment.addEventListener('click',(e)=>{
+    alert("comment Posted succefully!");
+});
+
+more.addEventListener('click',(e)=>{
     flag.style.display='block'
-   });
-   more.addEventListener('click',(e)=>{
-       flag.style.display='none'
-      });
+});
+
+more.addEventListener('mouseover',(e)=>{
+    flag.style.display='none'
+});
+
 postbtn.addEventListener('click',(e)=>{
     alert("Post Updated succefully!");
 });
@@ -75,65 +81,6 @@ delet1.addEventListener('click',(e)=>{
 });
 delet2.addEventListener('click',(e)=>{
     alert("Post Deleted succefully!");
-});
-rdlss2.addEventListener('mouseover',(e)=>{ 
-    title2.style.height='450px'
-    story2.style.display='block'
-    head2.style.height='30%'
-    rdlss2.textContent ='Read less....'
-    more2.style.display='block'
-});
-rdlss2.addEventListener('click',(e)=>{ 
-    title2.style.height='15%'
-    story2.style.display='none'
-    head2.style.height='100%'
-    rdlss2.textContent ='Read more....'
-    more2.style.display='none'
-    flag2.style.display='none'
-});
-more2.addEventListener('mouseover',(e)=>{
-    flag2.style.display='block'
-   });
-   more2.addEventListener('click',(e)=>{
-       flag2.style.display='none'
-      });
-
-   more1.addEventListener('mouseover',(e)=>{
-    flag1.style.display='block'
-   });
-   more1.addEventListener('click',(e)=>{
-       flag1.style.display='none'
-      });
-
-rdlss.addEventListener('mouseover',(e)=>{ 
-    title1.style.height='450px'
-    story1.style.display='block'
-    head1.style.height='30%'
-    rdlss.textContent ='Read less....'
-    more.style.display='block'
-});
-rdlss.addEventListener('click',(e)=>{ 
-    title1.style.height='15%'
-    story1.style.display='none'
-    head1.style.height='100%'
-    rdlss.textContent ='Read more....'
-    more.style.display='none'
-    flag.style.display='none'
-});
-rdlss1.addEventListener('mouseover',(e)=>{ 
-    title.style.height='450px'
-    story.style.display='block'
-    head.style.height='30%'
-    rdlss1.textContent ='Read less....'
-    more1.style.display='block'
-});
-rdlss1.addEventListener('click',(e)=>{ 
-    title.style.height='15%'
-    story.style.display='none'
-    head.style.height='100%'
-    rdlss1.textContent ='Read more....'
-    more1.style.display='none'
-    flag1.style.display='none'
 });
 
 close.addEventListener('click',(e)=>{
