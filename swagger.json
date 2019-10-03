@@ -5,7 +5,7 @@
     "version": "1",
     "title": "TEAMWORK"
   },
-  "host": "https://teamworkd.herokuapp.com",
+  "host": "teamworkd.herokuapp.com",
   "basePath": "/api/v1/",
   "securityDefinitions": {
     "Bearer": {
