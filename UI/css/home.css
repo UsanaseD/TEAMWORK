@@ -157,7 +157,7 @@ span{
      width: 100%;
  }
  table td{
-padding: 10;
+padding: 20;
 }
 
  table td h1{
@@ -214,7 +214,7 @@ padding: 10;
     width: 70%;
     overflow-y: scroll;
     align-content: stretch;
-    padding:12;
+  
 }
 .owwn h1{
   color: white;
@@ -543,7 +543,7 @@ form a:hover{
 
 .titl1{
   height: 130px;
-  width: 30%;
+  width: 31%;
   border: none;
   position: inherit;
   color: black;
@@ -556,7 +556,7 @@ form a:hover{
 }
 .titl2{
   height: 130px;
-  width: 34%;
+  width: 31%;
   border: none;
   position: sticky;;
   color: black;
@@ -570,9 +570,9 @@ form a:hover{
 
 .titl3{
   height: 130px;
-  width: 32px;
+  width: 32%;
   border: none;
-  position: inherit;;
+  position: inherit;
   color: black;
   background: white;
 
@@ -582,7 +582,7 @@ form a:hover{
 }
 .titl4{
   height: 130px;
-  width: 30%;
+  width: 31%;
   border: none;
   position: inherit;
   color: black;
@@ -595,7 +595,7 @@ form a:hover{
 }
 .titl5{
   height: 130px;
-  width: 34%;
+  width: 31%;
   border: none;
   position: sticky;;
   color: black;
@@ -641,7 +641,7 @@ form a:hover{
   width: auto;
   height: auto;
   background: rgb(179, 179, 178);
-  top:112;
+  top:103;
   position: absolute;
   text-align: center;
   right: 0;
@@ -655,6 +655,7 @@ form a:hover{
   font-size: 25px;
   color: rgb(112, 108, 108);
 }
+
 
 
 @media only screen and (max-width: 1000px) {
