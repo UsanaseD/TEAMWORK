@@ -5,7 +5,7 @@
     "version": "1",
     "title": "TEAMWORK"
   },
-  "host": "localhost:5000",
+  "host": "https://teamworkd.herokuapp.com",
   "basePath": "/api/v1/",
   "securityDefinitions": {
     "Bearer": {
@@ -440,9 +440,6 @@
   "article":{
     "type":"object",
     "properties":{
-      "auth_id":{
-        "type":"integer"
-      },
         "category":{
             "type":"string"
         },
@@ -458,9 +455,6 @@
 "articlepatch":{
   "type":"object",
   "properties":{
-    "auth_id":{
-      "type":"integer"
-    },
 
       "category":{
           "type":"string"
@@ -478,9 +472,6 @@
     "type":"object",
     "properties":{
         "article_id":{
-            "type":"integer"
-        },
-        "auth_id":{
             "type":"integer"
         },
         "comment":{

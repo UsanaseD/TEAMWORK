@@ -9,7 +9,7 @@ export const articleschema = joi.object().keys({
 });
 export const commentschema = joi.object().keys({
   article_id: joi.number().integer(),
-  auth_id: joi.number().integer(),
+  auth_email: joi.string(),
   comment: joi.string(),
 });
 
