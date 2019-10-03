@@ -9,7 +9,7 @@ export const articleflags = [
 ];
 export const users = [
   {
-    id:1,
+    id: 1,
     firstname: 'Usanase',
     lastname: 'Didier',
     gender: 'male',
@@ -33,7 +33,7 @@ export const articles = [
 ];
 export const comments = [
   {
-    id:1,
+    id: 1,
     article_id: 1,
     comment: 'really!',
 
@@ -41,7 +41,7 @@ export const comments = [
 ];
 export const commentflags = [
   {
-    id:1,
+    id: 1,
     comment_id: 1,
     reason: 'no sens',
     description: 'rrgergeg',

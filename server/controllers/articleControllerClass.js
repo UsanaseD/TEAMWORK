@@ -1,8 +1,4 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable eqeqeq */
-/* eslint-disable consistent-return */
-/* eslint-disable no-shadow */
-/* eslint-disable class-methods-use-this */
+
 import joi from '@hapi/joi';
 import {
   articles, articleflags, commentflags, comments, users,
@@ -27,7 +23,9 @@ class articleController {
     const article = articles.find((article) => article.id == req.params.id);
     if (!article) return res.status(404).json('there is no artile with this Id');
     const comment = comments.filter((comment) => comment.article_id == article.id);
-    res.status(200).json({ status: 200, message: 'article successfully selected', article, comment });
+    res.status(200).json({
+      status: 200, message: 'article successfully selected', article, comment,
+    });
   }
 
   // function to to delete a specified article
@@ -36,10 +34,10 @@ class articleController {
     joi.validate(req.body, articleschema, (err, value) => {
       if (err) return res.send(err.details[0].message);
       const article = articles.find((article) => article.id === parseInt(req.params.id, 10) && article.author === req.authUser.email);
-      if (!article) return res.status(404).json({message:'the id provided does not exist or you are not the author'});
+      if (!article) return res.status(404).json({ message: 'the id provided does not exist or you are not the author' });
       const index = articles.indexOf(article);
       articles.splice(index, 1);
-      res.json({ status: 404, message: 'article successfully deleted', data: article });
+      res.status(200).json({ status: 200, message: 'article successfully deleted', data: article });
     });
   }
 
@@ -47,13 +45,13 @@ class articleController {
   // function to update an article
   articlePatch(req, res) {
     joi.validate(req.body, articlepatchschema, (err, value) => {
-      if (err) return res.send(err.details[0].message)
+      if (err) return res.send(err.details[0].message);
       const art = articles.find((art) => art.id === parseInt(req.params.id, 10) && art.author === req.authUser.email);
       if (!art) return res.status(404).json('the stated article doesnt exist or you are not the author ');
       art.title = value.title;
       art.category = value.category;
       art.body = value.body;
-      return res.json({ status: 200, message: 'article successfully updated', data: art });
+      return res.status(200).json({ status: 200, message: 'article successfully updated', data: art });
     });
   }
 

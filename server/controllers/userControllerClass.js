@@ -1,4 +1,3 @@
-/* eslint-disable class-methods-use-this */
 import joi from '@hapi/joi';
 import { sign } from 'jsonwebtoken';
 import bycript from 'bcrypt';
@@ -60,7 +59,7 @@ class userController {
 
         process.env.SECRETKEY, (err, data) => {
           Newuser.token = data;
-          res.status(201).json({ status: 201, message: 'User succefully Signed up',data: userResponse(Newuser) });
+          res.status(201).json({ status: 201, message: 'User succefully Signed up', data: userResponse(Newuser) });
         });
       });
     });

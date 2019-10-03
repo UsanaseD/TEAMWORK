@@ -1,6 +1,4 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-console */
-/* eslint-disable linebreak-style */
+
 import {
   expect, should, use, request,
 } from 'chai';
@@ -24,8 +22,8 @@ describe('article endpoint testing', () => { // test case
         password: 'usanase10',
         admin: true,
         address: 'kk199st',
-      }).end((err, data) =>{
-      const { token } = data.body.data;
+      }).end((err, data) => {
+        const { token } = data.body.data;
         global.myToken = token;
         done();
       });
@@ -137,7 +135,7 @@ describe('article endpoint testing', () => { // test case
       .patch('/api/v1/article/1')
       .set({ Authorization: `Bearer ${global.myToken}` })
       .send({
-        auth_id:1,
+        auth_id: 1,
         title: 'valuetitle',
         category: 'vcategory',
         body: 'value.bodojihiy',
