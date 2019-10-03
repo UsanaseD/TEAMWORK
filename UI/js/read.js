@@ -6,8 +6,14 @@ const careers = document.getElementById('carrz');
 const services = document.getElementById('serv');
 const bann = document.getElementById('banner');
 const menu = document.getElementById('men');
+const more = document.getElementById('more');
+const more1 = document.getElementById('more1');
+const flag = document.getElementById('flag');
+const flag1 = document.getElementById('flag1');
 const own = document.getElementById('txt0');
 const postbtn = document.getElementById('post');
+const comment = document.getElementById('cmntbtn');
+const cmnt = document.getElementById('cmnt');
 const delet0 = document.getElementById('del0');
 const delet1 = document.getElementById('del1');
 const delet2 = document.getElementById('del2');
@@ -15,48 +21,58 @@ const delet3 = document.getElementById('del3');
 const add = document.getElementById('add');
 const type = document.getElementById('ona');
 const close = document.getElementById('close');
-const title = document.getElementById('tit');
+const less = document.getElementById('rctpst0');
+const read = document.getElementById('less0');
+const rdlss = document.getElementById('rd');
+const read1 = document.getElementById('less1');
+const rdlss1 = document.getElementById('rd1');
+const less1 = document.getElementById('rctpst1');
 const title1 = document.getElementById('tit1');
-const title2 = document.getElementById('tit2');
-const title3= document.getElementById('tit3');
-const title4 = document.getElementById('tit4');
-const title5 = document.getElementById('tit5');
-
+const story1 = document.getElementById('stry1');
+const head1 = document.getElementById('hd1');
+const title2= document.getElementById('tit2');
+const story2 = document.getElementById('stry2');
+const head2 = document.getElementById('hd2');
+const rdlss2 = document.getElementById('rd2');
 
 window.addEventListener('load', (e) =>{
-    type.style.display='none';
+ more.style.display='block'
+flag.style.display='none'
+type.style.display='none';
+container.style.display='block';
+container.style.width='100%';
+linkCarrer.style.display='none';
+title.style.height='15%'
+head.style.height='100%'
+story.style.display='block'
+head.style.height='100%'
+title1.style.height='15%'
+head1.style.height='100%'
+story1.style.display='none'
+head1.style.height='100%'
+more1.style.display='none'
+flag1.style.display='none'
+title2.style.height='15%'
+head2.style.height='100%'
+story2.style.display='none'
+more2.style.display='none'
+flag2.style.display='none'
+});
+comment.addEventListener('click',(e)=>{
+    alert("comment Posted succefully!");
+});
 
-});
-title.addEventListener('click',(e)=>{
-    window.location.href='./read.html'
-});
-title1.addEventListener('click',(e)=>{
-    window.location.href='./read.html'
-});
-title2.addEventListener('click',(e)=>{
-    window.location.href='./read.html'
-});
-title3.addEventListener('click',(e)=>{
-    window.location.href='./read.html'
-});
-title4.addEventListener('click',(e)=>{
-    window.location.href='./read.html'
-});
-title5.addEventListener('click',(e)=>{
-    window.location.href='./read.html'
+more.addEventListener('click',(e)=>{
+    flag.style.display='block'
 });
 
+more.addEventListener('mouseover',(e)=>{
+    flag.style.display='none'
+});
 
 postbtn.addEventListener('click',(e)=>{
     alert("Post Updated succefully!");
 });
-add.addEventListener('click',(e)=>{
-    type.style.display='block';
-    });
-    close.addEventListener('click',(e)=>{
-        type.style.display='none';
-    });
-
 delet0.addEventListener('click',(e)=>{
     alert("Post Deleted succefully!");
 });
@@ -65,6 +81,14 @@ delet1.addEventListener('click',(e)=>{
 });
 delet2.addEventListener('click',(e)=>{
     alert("Post Deleted succefully!");
+});
+
+close.addEventListener('click',(e)=>{
+    type.style.display='none';
+});
+
+add.addEventListener('click',(e)=>{
+type.style.display='block';
 });
 
 click.addEventListener('mouseover',(e)=>{
