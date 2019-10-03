@@ -21,93 +21,91 @@ const add = document.getElementById('add');
 const type = document.getElementById('ona');
 const close = document.getElementById('close');
 
-window.addEventListener('load', (e) =>{
-container.style.display='block';
-container.style.width='100%';
-linkCarrer.style.display='none';
-flag.style.display ='none';
-flag1.style.display ='none';
-type.style.display ='none';
+window.addEventListener('load', (e) => {
+  container.style.display = 'block';
+  container.style.width = '100%';
+  linkCarrer.style.display = 'none';
+  flag.style.display = 'none';
+  flag1.style.display = 'none';
+  type.style.display = 'none';
 });
 
-close.addEventListener('click',(e)=>{
-    type.style.display='none';
+close.addEventListener('click', (e) => {
+  type.style.display = 'none';
 });
 
-add.addEventListener('click',(e)=>{
-type.style.display='block';
+add.addEventListener('click', (e) => {
+  type.style.display = 'block';
 });
 
-click.addEventListener('mouseover',(e)=>{
- linkCarrer.style.display='none';
-container.style.marginLeft='25%';
-bann.style.width='125%';
-menu.style.width='125%';
-careers.style.color='white';
-services.style.display='white';
-container.style.top='37%';
+click.addEventListener('mouseover', (e) => {
+  linkCarrer.style.display = 'none';
+  container.style.marginLeft = '25%';
+  bann.style.width = '125%';
+  menu.style.width = '125%';
+  careers.style.color = 'white';
+  services.style.display = 'white';
+  container.style.top = '37%';
 });
 
-container.addEventListener('mouseover',(e)=>{
-    container.style.marginLeft ='0%';
-    bann.style.width='100%';
-    menu.style.width='100%';
-    container.style.top='35%'
-});
-
-
-careers.addEventListener('mouseover',(e)=>{
-    linkCarrer.style.display='block';
-    container.style.marginLeft='25%';
-    careers.style.color='grey';
-    services.style.color='white';
-    linkCarrer.style.color='grey';
-});
-services.addEventListener('mouseover',(e)=>{
-    container.style.marginLeft='25%';
-    linkCarrer.style.display='none';
-    services.style.color='grey';
-    careers.style.color='white';
-});
-  cmnt.addEventListener('click',(e)=>{
-      alert('comment updated successfully!')
-  });
-  cmnt1.addEventListener('click',(e)=>{
-    alert('comment updated successfully!')
-});
-
-more.addEventListener('mouseover',(e)=>{
-    flag.style.display='block';
-});
-more.addEventListener('click',(e)=>{
-    flag.style.display='none';
-});
-
-more1.addEventListener('mouseover',(e)=>{
-    flag1.style.display='block';
-});
-more1.addEventListener('click',(e)=>{
-    flag1.style.display='none';
-});
-
-  delet0.addEventListener('click',(e)=>{
-    alert("Post Deleted succefully!");
-});
-
-delet1.addEventListener('click',(e)=>{
-    alert("Post Deleted succefully!");
-});
-
-delet2.addEventListener('click',(e)=>{
-    alert("Post Deleted succefully!");
-});
-
-delet3.addEventListener('click',(e)=>{
-    alert("Post Deleted succefully!");
-});
-
-postbtn.addEventListener('click',(e)=>{
-    alert("Post Updated succefully!");
+container.addEventListener('mouseover', (e) => {
+  container.style.marginLeft = '0%';
+  bann.style.width = '100%';
+  menu.style.width = '100%';
+  container.style.top = '35%';
 });
 
 
+careers.addEventListener('mouseover', (e) => {
+  linkCarrer.style.display = 'block';
+  container.style.marginLeft = '25%';
+  careers.style.color = 'grey';
+  services.style.color = 'white';
+  linkCarrer.style.color = 'grey';
+});
+services.addEventListener('mouseover', (e) => {
+  container.style.marginLeft = '25%';
+  linkCarrer.style.display = 'none';
+  services.style.color = 'grey';
+  careers.style.color = 'white';
+});
+cmnt.addEventListener('click', (e) => {
+  alert('comment updated successfully!');
+});
+cmnt1.addEventListener('click', (e) => {
+  alert('comment updated successfully!');
+});
+
+more.addEventListener('mouseover', (e) => {
+  flag.style.display = 'block';
+});
+more.addEventListener('click', (e) => {
+  flag.style.display = 'none';
+});
+
+more1.addEventListener('mouseover', (e) => {
+  flag1.style.display = 'block';
+});
+more1.addEventListener('click', (e) => {
+  flag1.style.display = 'none';
+});
+
+delet0.addEventListener('click', (e) => {
+  alert('Post Deleted succefully!');
+});
+
+delet1.addEventListener('click', (e) => {
+  alert('Post Deleted succefully!');
+});
+
+delet2.addEventListener('click', (e) => {
+  alert('Post Deleted succefully!');
+});
+
+delet3.addEventListener('click', (e) => {
+  alert('Post Deleted succefully!');
+});
+
+postbtn.addEventListener('click', (e) => {
+  alert('Post Updated succefully!');
+});

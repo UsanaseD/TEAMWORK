@@ -1,7 +1,4 @@
-/* eslint-disable eqeqeq */
-/* eslint-disable consistent-return */
-/* eslint-disable no-shadow */
-/* eslint-disable class-methods-use-this */
+
 import joi from '@hapi/joi';
 import {
   articles, articleflags, commentflags, comments, users,
@@ -11,7 +8,6 @@ import {
   articleflagschema, commentschema, articlepatchschema,
 } from '../helpers/schema';
 
-
 class articleController {
 // function to select all reported articles
   getallreparticles(req, res) {
@@ -19,24 +15,16 @@ class articleController {
   }
 
   // function to select all articles
-  getallarticles(req, res) {
-    res.status(200).json({ status: 200, message: 'article successfully selected', data: articles.reverse() });
-  }
-
+  getallarticles(req, res) { res.status(200).json({ status: 200, message: 'article successfully selected', data: articles.reverse() }); }
 
   // function to select an article
 
   specifedarticle(req, res) {
-    const article = articles.find((article) => article.id === req.params.id);
-    if (!article) return res.send('there is no artile with this Id');
-    const data = {
-      article,
-    };
-
-    const comment = comments.filter((comment) => comment.article_id === article.id);
-
+    const article = articles.find((article) => article.id == req.params.id);
+    if (!article) return res.status(404).json('there is no artile with this Id');
+    const comment = comments.filter((comment) => comment.article_id == article.id);
     res.status(200).json({
-      status: 200, message: 'article successfully selected', data, comment,
+      status: 200, message: 'article successfully selected', article, comment,
     });
   }
 
@@ -45,11 +33,11 @@ class articleController {
   deleteArticle(req, res) {
     joi.validate(req.body, articleschema, (err, value) => {
       if (err) return res.send(err.details[0].message);
-      const article = articles.find((article) => article.id === parseInt(req.params.id, 10));
-      if (!article) return res.status(404).send('the id provided does not exist');
+      const article = articles.find((article) => article.id === parseInt(req.params.id, 10) && article.author === req.authUser.email);
+      if (!article) return res.status(404).json({ message: 'the id provided does not exist or you are not the author' });
       const index = articles.indexOf(article);
       articles.splice(index, 1);
-      res.json({ status: 200, message: 'article successfully deleted', data: article });
+      res.status(200).json({ status: 200, message: 'article successfully deleted', data: article });
     });
   }
 
@@ -58,12 +46,12 @@ class articleController {
   articlePatch(req, res) {
     joi.validate(req.body, articlepatchschema, (err, value) => {
       if (err) return res.send(err.details[0].message);
-      const art = articles.find((art) => art.id === parseInt(req.params.id, 10));
-      if (!art) return res.send('the stated id doesnt exist ');
+      const art = articles.find((art) => art.id === parseInt(req.params.id, 10) && art.author === req.authUser.email);
+      if (!art) return res.status(404).json('the stated article doesnt exist or you are not the author ');
       art.title = value.title;
       art.category = value.category;
       art.body = value.body;
-      return res.json({ status: 200, message: 'article successfully updated', data: art });
+      return res.status(200).json({ status: 200, message: 'article successfully updated', data: art });
     });
   }
 
@@ -72,12 +60,10 @@ class articleController {
     joi.validate(req.body, commentschema, (err, value) => {
       if (err) return res.send(err.details[0].message);
       const cmtart = articles.find((cmtart) => cmtart.id === value.article_id);
-      const cmtauth = users.find((cmtauth) => cmtauth.id === value.auth_id);
-      if (!cmtauth) return res.send('the stated user id doesnt exist');
-      if (!cmtart) return res.send('the stated article id doesnt exist ');
+      if (!cmtart) return res.status(404).json('the stated article id doesnt exist ');
       const cmnt = {
         id: comments.length + 1,
-        auth_id: value.auth_id,
+        auth_email: req.authUser.email,
         article_id: value.article_id,
         comment: value.comment,
         createdOn: new Date(),
@@ -91,11 +77,10 @@ class articleController {
   articlePost(req, res) {
     joi.validate(req.body, articleschema, (err, value) => {
       if (err) return res.send(err.details[0].message);
-      const user = users.find((user) => user.id === value.auth_id);
-      if (!user) return res.send('the stated user id doesnt exist ');
+      const user = users.find((userId) => userId.email === req.authUser.email);
+      if (!user) return res.status(404).send('the stated user id doesnt exist ');
       const story = {
         id: articles.length + 1,
-        auth_id: user.id,
         author: user.email,
         category: value.category,
         title: value.title,
@@ -112,7 +97,7 @@ class articleController {
     joi.validate(req.body, articleflagschema, (err, value) => {
       if (err) return res.send(err.details[0].message);
       const art = articles.find((art) => art.id === value.article_id);
-      if (!art) return res.send('the stated article id doesnt exist ');
+      if (!art) return res.status(404).json('the stated article id doesnt exist ');
       const flg = {
         id: articleflags.length + 1,
         article_id: value.article_id,
@@ -129,7 +114,7 @@ class articleController {
     joi.validate(req.body, commentflagschema, (err, value) => {
       if (err) return res.send(err.details[0].message);
       const cmt = comments.find((cmt) => cmt.id === value.comment_id);
-      if (!cmt) return res.send('the stated comment id doesnt exist ');
+      if (!cmt) return res.status(404).json('the stated comment id doesnt exist ');
       const flg = {
         id: commentflags.length + 1,
         comment_id: value.comment_id,

@@ -1,9 +1,10 @@
-/* eslint-disable class-methods-use-this */
 import joi from '@hapi/joi';
 import { sign } from 'jsonwebtoken';
 import bycript from 'bcrypt';
 import { users } from '../model/model';
 import { loginschema, signupschema } from '../helpers/schema';
+import userResponse from '../helpers/userReturn';
+
 
 class userController {
   // function to create login feature
@@ -16,14 +17,13 @@ class userController {
       bycript.compare(value.password, foundUser.password, (err, result) => {
         if (!result) return res.send('password doesnt match');
         sign({
+          id: foundUser.id,
           email: foundUser.email,
-          password: foundUser.password,
           admin: foundUser.admin,
         },
-
         process.env.SECRETKEY, (err, data) => {
           foundUser.token = data;
-          res.status(200).json({ status: 200, message: 'User succefully Logged In', foundUser });
+          res.status(200).json({ status: 200, message: 'User succefully Logged In', data: userResponse(foundUser) });
         });
       });
     });
@@ -59,7 +59,7 @@ class userController {
 
         process.env.SECRETKEY, (err, data) => {
           Newuser.token = data;
-          res.status(201).json({ status: 201, message: 'User succefully Signed up', data: Newuser });
+          res.status(201).json({ status: 201, message: 'User succefully Signed up', data: userResponse(Newuser) });
         });
       });
     });
