@@ -565,6 +565,14 @@ span{
   text-align: center;
   right: 0;
 }
+.mine a{
+  font-size: 29px;
+  color: white;
+}
+.mine a:hover{
+  font-size: 29px;
+  color: black;
+}
 
 
 @media only screen and (max-width: 1000px) {

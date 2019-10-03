@@ -70,27 +70,6 @@ more.addEventListener('mouseover',(e)=>{
     flag.style.display='none'
 });
 
-postbtn.addEventListener('click',(e)=>{
-    alert("Post Updated succefully!");
-});
-delet0.addEventListener('click',(e)=>{
-    alert("Post Deleted succefully!");
-});
-delet1.addEventListener('click',(e)=>{
-    alert("Post Deleted succefully!");
-});
-delet2.addEventListener('click',(e)=>{
-    alert("Post Deleted succefully!");
-});
-
-close.addEventListener('click',(e)=>{
-    type.style.display='none';
-});
-
-add.addEventListener('click',(e)=>{
-type.style.display='block';
-});
-
 click.addEventListener('mouseover',(e)=>{
  linkCarrer.style.display='none';
 container.style.marginLeft='25%';
