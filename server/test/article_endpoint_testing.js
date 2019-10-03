@@ -138,6 +138,7 @@ describe('article endpoint testing', () => { // test case
       .patch('/api/v1/article/1')
       .set({ Authorization: `Bearer ${global.myToken}` })
       .send({
+        auth_id:1,
         title: 'valuetitle',
         category: 'vcategory',
         body: 'value.bodojihiy',

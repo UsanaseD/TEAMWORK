@@ -15,15 +15,16 @@ class userController {
       if (!foundUser) return res.status(405).send('email does not exist');
       bycript.compare(value.password, foundUser.password, (err, result) => {
         if (!result) return res.send('password doesnt match');
+        const user = {
+        };
         sign({
+          id: foundUser.id,
           email: foundUser.email,
-          password: foundUser.password,
           admin: foundUser.admin,
         },
-
         process.env.SECRETKEY, (err, data) => {
-          foundUser.token = data;
-          res.status(200).json({ status: 200, message: 'User succefully Logged In', foundUser });
+          user.token = data;
+          res.status(200).json({ status: 200, message: 'User succefully Logged In', user });
         });
       });
     });
@@ -51,6 +52,9 @@ class userController {
           password: hashdpsswd,
         };
         users.push(Newuser);
+        const user = {
+
+        };
         sign({
           email: Newuser.email,
           password: Newuser.password,
@@ -58,8 +62,8 @@ class userController {
         },
 
         process.env.SECRETKEY, (err, data) => {
-          Newuser.token = data;
-          res.status(201).json({ status: 201, message: 'User succefully Signed up', data: Newuser });
+          user.token = data;
+          res.status(201).json({ status: 201, message: 'User succefully Signed up', user });
         });
       });
     });

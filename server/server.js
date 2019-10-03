@@ -5,10 +5,10 @@ import routefunc from './routes/routes';
 
 config();
 
+const port = process.env.PORT;
 const app = express();
 app.use(bodyparser.json());// reads json data and sends them to (app)
 routefunc(app);
-const port = process.env.PORT;
 app.listen(port, () => console.log(`listening on port ${port}...`));
 
 export default app;

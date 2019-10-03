@@ -5,7 +5,7 @@
     "version": "1",
     "title": "TEAMWORK"
   },
-  "host": "teamworkd.herokuapp.com",
+  "host": "localhost:5000",
   "basePath": "/api/v1/",
   "securityDefinitions": {
     "Bearer": {
@@ -458,6 +458,9 @@
 "articlepatch":{
   "type":"object",
   "properties":{
+    "auth_id":{
+      "type":"integer"
+    },
 
       "category":{
           "type":"string"

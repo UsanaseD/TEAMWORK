@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable eqeqeq */
 /* eslint-disable consistent-return */
 /* eslint-disable no-shadow */
@@ -11,7 +12,6 @@ import {
   articleflagschema, commentschema, articlepatchschema,
 } from '../helpers/schema';
 
-
 class articleController {
 // function to select all reported articles
   getallreparticles(req, res) {
@@ -19,25 +19,15 @@ class articleController {
   }
 
   // function to select all articles
-  getallarticles(req, res) {
-    res.status(200).json({ status: 200, message: 'article successfully selected', data: articles.reverse() });
-  }
-
+  getallarticles(req, res) { res.status(200).json({ status: 200, message: 'article successfully selected', data: articles.reverse() }); }
 
   // function to select an article
 
   specifedarticle(req, res) {
-    const article = articles.find((article) => article.id === req.params.id);
+    const article = articles.find((article) => article.id == req.params.id);
     if (!article) return res.send('there is no artile with this Id');
-    const data = {
-      article,
-    };
-
-    const comment = comments.filter((comment) => comment.article_id === article.id);
-
-    res.status(200).json({
-      status: 200, message: 'article successfully selected', data, comment,
-    });
+    const comment = comments.filter((comment) => comment.article_id == article.id);
+    res.status(200).json({ status: 200, message: 'article successfully selected', article, comment });
   }
 
   // function to to delete a specified article
@@ -58,8 +48,9 @@ class articleController {
   articlePatch(req, res) {
     joi.validate(req.body, articlepatchschema, (err, value) => {
       if (err) return res.send(err.details[0].message);
-      const art = articles.find((art) => art.id === parseInt(req.params.id, 10));
-      if (!art) return res.send('the stated id doesnt exist ');
+      console.log(req.authUser);
+      const art = articles.find((art) => art.id === parseInt(req.params.id, 10) && art.auth_id === req.authUser.id);
+      if (!art) return res.send('the stated article doesnt exist or you are not the author ');
       art.title = value.title;
       art.category = value.category;
       art.body = value.body;
@@ -91,11 +82,10 @@ class articleController {
   articlePost(req, res) {
     joi.validate(req.body, articleschema, (err, value) => {
       if (err) return res.send(err.details[0].message);
-      const user = users.find((user) => user.id === value.auth_id);
+      const user = users.find((userId) => userId.auth_id === req.authUser.id);
       if (!user) return res.send('the stated user id doesnt exist ');
       const story = {
         id: articles.length + 1,
-        auth_id: user.id,
         author: user.email,
         category: value.category,
         title: value.title,

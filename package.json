@@ -6,6 +6,7 @@
   "scripts": {
     "build": "babel server --out-dir dist",
     "start": "node ./dist/server.js",
+    "local": "nodemon --exec babel-node ./server/server.js",
     "lint": "./node_modules/.bin/eslint server",
     "fix": "./node_modules/.bin/eslint server --fix",
     "test": "nyc --reporter=html --reporter=text mocha --exit --require @babel/register ./server/test/*.js",

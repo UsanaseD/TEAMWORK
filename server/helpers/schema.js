@@ -2,7 +2,6 @@ import joi from '@hapi/joi';
 
 
 export const articleschema = joi.object().keys({
-  auth_id: joi.number().integer(),
   author: joi.string().email({ minDomainSegments: 2 }),
   category: joi.string().regex(/^[a-zA-Z]{3,30}$/),
   title: joi.string(),
