@@ -7,7 +7,7 @@ config();
 
 const port = process.env.PORT;
 const app = express();
-app.use(bodyparser.json());// reads json data and sends them to (app)
+app.use(bodyparser.json());
 routefunc(app);
 app.listen(port, () => console.log(`listening on port ${port}...`));
 
