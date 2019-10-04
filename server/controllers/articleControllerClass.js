@@ -55,6 +55,17 @@ class articleController {
     });
   }
 
+    // function to display articles of a same author
+    authorArticles(req, res) {
+      joi.validate(req.body, articlepatchschema, (err, value) => {
+        if (err) return res.send(err.details[0].message);
+        const user = users.find((user) => user.id === parseInt(req.params.id, 10));
+        if (!user) return res.status(404).json({ message: 'the id provided does not exist or you are not the author' });
+        const art = articles.filter((art) => art.author === user.email);
+        return res.status(200).json({ status: 200, message: 'articles successfully retrieved', data: art.reverse() });
+      });
+    }
+
   // function to create a comment
   commentPost(req, res) {
     joi.validate(req.body, commentschema, (err, value) => {
