@@ -1,0 +1,1 @@
+//to contain validation i will use in articleControllerClass

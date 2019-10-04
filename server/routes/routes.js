@@ -20,7 +20,7 @@ export default (app) => {
   app.get('/api/v1/reparticle', adminMidware, articleControllerClass.getallreparticles);
   app.get('/api/v1/article/:id', authMidleware, articleControllerClass.specifedarticle);
   app.get('/api/v1/article', authMidleware, articleControllerClass.getallarticles);
-  app.get('/api/v1/Autharticle/:id', authMidleware, articleControllerClass.authorArticles);
+  app.get('/api/v1/author/article/:id', authMidleware, articleControllerClass.authorArticles);
 
   app.delete('/api/v1/article/:id', authMidleware, articleControllerClass.deleteArticle);
 
