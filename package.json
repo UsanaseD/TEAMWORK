@@ -36,7 +36,7 @@
     "coveralls": "^3.0.6",
     "dotenv": "^8.1.0",
     "eslint-init": "^0.1.12",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "install-eslint": "^1.0.8",
     "joi": "^14.3.1",
     "jsonwebtoken": "^8.5.1",
